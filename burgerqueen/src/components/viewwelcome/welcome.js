@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/viewwelcome/welcomestyle.css';
+import './welcomestyle.css';
 
 export const welcomeView = () =>{
   return (
