@@ -81,3 +81,37 @@
 #logoBanner{
     width: 340px;    
 }
+
+#client{
+    position: fixed;
+    margin-top: 170px;
+    font-family: 'Courgette', cursive;
+    font-size: 20px;
+    margin-left: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#inputClient{
+    background: rgba(255, 225, 197, 0.9);
+    border: 1px solid #6B3D2E;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 210px;
+    height: 30px;
+    padding: 5px;
+}
+#tableContainer{
+    position: fixed;
+    display: flex;
+    padding: 300px;
+}
+.btnTable{
+
+}
+.labelTable{
+
+}
