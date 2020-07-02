@@ -10,6 +10,7 @@ import Select from '../components/Select';
 import Background from '../components/Background';
 import Header from '../components/Header';
 import InputClient from '../components/InputClient';
+import TableButton from '../components/TableButton';
 
 
 const App = () => {
@@ -20,12 +21,13 @@ const App = () => {
           <Buttons/>
           <Welcome/>
         </Route>
-        <Route path="/mesero" exact>
+        <Route path="/mesero">
           <Buttons/>
           <Welcome/>
           <Select/>
         </Route>
-        <Route path="/mesas" exact>
+        <Route path="/mesas">
+          <TableButton />
           <InputClient />
           <Header />
           <Background />

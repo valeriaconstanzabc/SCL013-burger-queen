@@ -2,9 +2,9 @@ import React from 'react'
 
 const InputClient = () => {
     return (
-        <div id="inputClient">
-            <label id="">Nombre de cliente:</label>
-            <input type="text"></input>
+        <div id="client">
+            <label id="nameClient">Nombre de cliente:</label>
+            <input id="inputClient" type="text"></input>
         </div>
     )
 }
