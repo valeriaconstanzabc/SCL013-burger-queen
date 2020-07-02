@@ -1,26 +1,18 @@
 import React, {Fragment}from 'react'
-//import Select from './Select'
-
-
-
+import { Link } from "react-router-dom";
 
 const Buttons = () => {
-
-    const eventClick = () => {
-      
-   
-    }
 
     return (
         <Fragment>
             <div id="cookButtonContainer">
-                <button id="cookButton" onClick = { () =>eventClick() }>Cocinero</button>
+                <button id="cookButton">Cocinero</button>
             </div>
-            <div id="waiterButtonContainer">
+            <Link to="/mesero" id="waiterButtonContainer">
                 <button id="waiterButton"> Mesero</button>
-            </div>
+            </Link>
         </Fragment>
-      
+
     )
 }
 
