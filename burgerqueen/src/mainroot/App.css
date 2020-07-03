@@ -59,7 +59,7 @@
   }
 
 .background2{
-    background-image: url("../img/BurgerQueen.jpg");
+    background-image: url("../img/burgerqueen2.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -84,10 +84,10 @@
 
 #client{
     position: fixed;
-    margin-top: 170px;
+    margin-top: 200px;
     font-family: 'Courgette', cursive;
     font-size: 20px;
-    margin-left: 310px;
+    margin-left: 330px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,19 +113,21 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 230px;
+    margin-top: 275px;
 }
+
 #tableButtons{
     display:flex;
     flex-wrap: wrap;
-    width: 100%;
-    padding-left: 85px;
+    justify-content: center;
+
+    width: 900px;
+    padding: 40px;
 }
 .btnTable{
     background: transparent;
     border: 0;
-    
-    
+    margin: 0px 30px 20px 30px;
 }
 .labelTable{
     position: fixed;
@@ -136,5 +138,6 @@
 }
 .imgTable{
     width: 230px;
+    cursor: pointer;
 }
 
