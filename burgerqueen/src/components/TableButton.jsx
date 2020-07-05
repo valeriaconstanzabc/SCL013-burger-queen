@@ -1,8 +1,8 @@
 import React from 'react'
 import mesa from '../img/mesa.png'
-//import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
-const TableButton = () => {
+const TableButton = (props) => {
 
     const [table1,  setTable1] = React.useState('')
     const [table2,  setTable2] = React.useState('')
@@ -17,33 +17,63 @@ const TableButton = () => {
             <h1>Seleccione mesa de cliente:</h1>
             </div>
             <div id="tableButtons">
-            <button className="btnTable" onClick = { (e) => setTable1(e.target.value)} value={table1}>
+            <button type="button"  className="btnTable" onClick ={() => setTable1("1")} value={table1}>
                 <p className="labelTable">Mesa 1</p>
                 <img  src={mesa} alt="mesa" className="imgTable"></img>
+                {
+                    table1 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
             </button>
-            <button type="button" className="btnTable" onClick = { (e) => setTable2(e.target.value)} value={table2}>
+            <button type="button" className="btnTable" onClick ={() => setTable2("2")} value={table2}>
                 <p className="labelTable">Mesa 2</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
-                </button>
-            <button type="button" className="btnTable" onClick = { (e) => setTable3(e.target.value)} value={table3}>
+                {
+                    table2 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
+            </button>
+            <button type="button" className="btnTable" onClick = {() => setTable3("3")} value={table3}>
                 <p className="labelTable">Mesa 3</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
-                </button>
-            <button type="button" className="btnTable" onClick = { (e) => setTable4(e.target.value)} value={table4}>
+                {
+                    table3 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
+            </button>
+            <button type="button" className="btnTable" onClick = {() => setTable4("4")} value={table4}>
                 <p className="labelTable">Mesa 4</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
+                {
+                    table4 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
             </button>
-            <button type="button" className="btnTable" onClick = { (e) => setTable5(e.target.value)} value={table5}>
+            <button type="button" className="btnTable" onClick = {() => setTable5("5")} value={table5}>
                 <p className="labelTable">Mesa 5</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
+                {
+                    table5 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
             </button>
-            <button type="button" className="btnTable" onClick = { (e) => setTable6(e.target.value)} value={table6}>
+            <button type="button" className="btnTable" onClick = {() => setTable6("6")} value={table6}>
                 <p className="labelTable">Mesa 6</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
+                {
+                    table6 && (
+                        props.history.push('/nuevaOrden')
+                    )
+                }
             </button>
             </div>
         </main>
     )
 }
 
-export default TableButton
+export default withRouter(TableButton)
