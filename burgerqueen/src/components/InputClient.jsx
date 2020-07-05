@@ -7,7 +7,7 @@ const InputClient = () => {
     return (
         <div id="client">
             <label id="nameClient">Nombre de cliente:</label>
-            <input id="inputClient" type="text" onChange = { (e) => setNameClient(e.target.value)}></input>
+            <input id="inputClient" type="text" onChange = { (e) => setNameClient(e.target.value)} value={nameClient}></input>
         </div>
     )
 }

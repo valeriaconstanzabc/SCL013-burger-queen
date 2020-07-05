@@ -32,6 +32,9 @@ const App = () => {
           <Header />
           <Background />
         </Route>
+        <Route path="/nuevaOrden">
+          Pedidos...
+        </Route>
       </Switch>
     </Router>
   );
