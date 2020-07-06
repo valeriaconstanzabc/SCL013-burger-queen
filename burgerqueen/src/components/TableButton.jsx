@@ -10,24 +10,7 @@ const TableButton = () => {
 
   React.useEffect(() => {
 
-    /*const obtenerDatos = async () => {
 
-      try {
-
-        const db = firebase.firestore()
-        //trae todos los documentos de tareas//
-        const data = await db.collection('tareas').get()
-        console.log(data.docs)
-        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto//
-        const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        console.log(arrayData)
-        setTareas(arrayData)
-      } catch (error) {
-        console.log(error)
-
-      }
-    }
-    obtenerDatos()*/
 
     const obtenerMesas = async () => {
 
@@ -48,33 +31,7 @@ const TableButton = () => {
     obtenerMesas()
   }, [])
 
-  /*const agregar = async (e) => {
-    // evita que se ejecute el comando get//
-    e.preventDefault()
-  // validacion para que no se ingrese un campo vacio//
-    if(!tarea.trim()){
-    console.log("Esta vacio")
-    return
-  }
-  try{
-    const db = firebase.firestore()
-    const nuevaTarea = {
-      name: tarea,
-      fecha: Date.now()
-    }
-    //agregar a la data de firebase//
-    const data = await db.collection('tareas').add(nuevaTarea)
-    setTareas([
-      ...tareas,
-      {...nuevaTarea, id: data.id}
-    ])
-    setTarea('')
-
-  }catch (error) {
-    console.log(error)
-  }
-  console.log(tarea)
-}*/
+  
 
   const inputClient = async (e) => {
     // evita que se ejecute el comando get//
@@ -105,39 +62,7 @@ const TableButton = () => {
 
   }
 
-  /*const eliminar = async (id) => {
-    try {
-      const db= firebase.firestore()
-      //con esto eliminamos un producto (el doc es porque debemos especificar que accedemos a un documento con un id)
-      await db.collection('tareas').doc(id).delete()
-      // resive las tareas y filtra cuando el item.id es distinto al id, cuando es igual lo va a sacar//
-      const arrayFiltrado = tareas.filter(item => item.id !== id)
-      //enviara a firebase el nuevo arreglo filtrado y eliminando si es necesario//
-      setTareas(arrayFiltrado)
-    }catch (error) {
-      console.log(error)
-    }
-  }*/
-
-  /*const eliminarMesa = async (id) => {
-    try {
-      const db= firebase.firestore()
-      //con esto eliminamos un producto (el doc es porque debemos especificar que accedemos a un documento con un id)
-      await db.collection('mesas').doc(id).delete()
-      // resive las tareas y filtra cuando el item.id es distinto al id, cuando es igual lo va a sacar//
-      const arrayFiltrado = mesas.filter(item => item.id !== id)
-      //enviara a firebase el nuevo arreglo filtrado y eliminando si es necesario//
-      setMesas(arrayFiltrado)
-    }catch (error) {
-      console.log(error)
-    }
-  }*/
-
-  /*const activarEdicion = (item) => {
-    setModoEdicion(true)
-    setTarea(item.name)
-    setId(item.id)
-  }*/
+  
 
   const activarEdicionMesas = (item) => {
     setModoEdicionMesas(true)
@@ -145,32 +70,7 @@ const TableButton = () => {
     setIdMesa(item.id)
   }
 
-  /*const editar = async (e) => {
-    e.preventDefault()
-    if(!tarea.trim()){
-      console.log('vacio')
-      return
-    }
-    try {
-      const db = firebase.firestore()
-      await db.collection('tareas').doc(id).update({
-        //donde esta el name en tarea
-        name: tarea
-      })
-      const arrayEdidato = tareas.map(item => (
-        item.id === id ? {id: item.id, fecha:item.fecha, name: tarea} : item 
-      ))
-      setTareas(arrayEdidato)
-      setModoEdicion(false)
-      setTarea('')
-      setId('')
-      
-    } catch (error) {
-      console.log(error)
-      
-    }
-  }*/
-
+  
   const editarMesas = async (e) => {
     e.preventDefault()
     if (!client.trim()) {
