@@ -20,7 +20,7 @@ const TableButton = () => {
         //trae todos los documentos de tareas//
         const data = await db.collection('mesas').get()
         console.log(data.docs)
-        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto//
+        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objetoo//
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         console.log(arrayData)
         setMesas(arrayData)
