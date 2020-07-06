@@ -3,6 +3,7 @@ import { firebase } from '../firebase/firebase'
 import mesa from '../img/mesa.png'
 
 const TableButton = () => {
+
   const [mesas, setMesas] = React.useState([])
   const [client, setClient] = React.useState('')
   const [modoEdicionMesas, setModoEdicionMesas] = React.useState(false)
@@ -10,17 +11,14 @@ const TableButton = () => {
 
   React.useEffect(() => {
 
-
-
     const obtenerMesas = async () => {
 
       try {
-
         const db = firebase.firestore()
-        //trae todos los documentos de tareas//
+        //trae todos los documentos de mesas
         const data = await db.collection('mesas').get()
         console.log(data.docs)
-        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objetoo//
+        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         console.log(arrayData)
         setMesas(arrayData)
@@ -31,13 +29,9 @@ const TableButton = () => {
     obtenerMesas()
   }, [])
 
-  
-
   const inputClient = async (e) => {
-    // evita que se ejecute el comando get//
-    e.preventDefault()
-    // validacion para que no se ingrese un campo vacio//
-    if (!client.trim()) {
+    e.preventDefault()// evita que se ejecute el comando get(que se actualice la página)
+    if (!client.trim()) { // validacion para que no se ingrese un campo vacio
       console.log("Esta vacio")
       return
     }
@@ -47,8 +41,8 @@ const TableButton = () => {
         name: client,
         fecha: Date.now()
       }
-      //agregar a la data de firebase//
-      const data = await db.collection('mesas').add(nuevaTarea)
+      
+      const data = await db.collection('mesas').add(nuevaTarea) //agregar a la data de firebase
       setMesas([
         ...mesas,
         { ...nuevaTarea, id: data.id }
@@ -62,15 +56,12 @@ const TableButton = () => {
 
   }
 
-  
-
   const activarEdicionMesas = (item) => {
     setModoEdicionMesas(true)
     setClient('')
     setIdMesa(item.id)
   }
 
-  
   const editarMesas = async (e) => {
     e.preventDefault()
     if (!client.trim()) {
@@ -78,12 +69,11 @@ const TableButton = () => {
       return
     }
     try {
+
       const db = firebase.firestore()
       await db.collection('mesas').doc(idMesa).update({
-        //donde esta el name en tarea
         nameClient: client,
         fecha: Date.now()
-
       })
       const arrayEdidato = mesas.map(item => (
         item.id === idMesa ? { name: item.name, nameClient: mesas, fecha: Date.now() } : item
@@ -95,7 +85,6 @@ const TableButton = () => {
 
     } catch (error) {
       console.log(error)
-
     }
   }
 
@@ -122,23 +111,17 @@ const TableButton = () => {
         }
       </div>
 
-      <div className="formulario">
-        <h3>Cliente
-      </h3>
+      <div id="client">
+        <label id="nameClient">Nombre de cliente:</label>
         <form onSubmit={modoEdicionMesas ? editarMesas : inputClient}>
           <input
+            id="inputClient"
             type="text"
             placeholder="nombre cliente"
             onChange={e => setClient(e.target.value)}
             value={client}
           />
-          <button
-            type="submit"
-          >
-            {
-              modoEdicionMesas ? 'Editar' : 'Cliente'
-            }
-          </button>
+          <button className="btnSend" type="submit">Enviar</button>
         </form>
       </div>
     </main>

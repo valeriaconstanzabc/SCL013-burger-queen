@@ -27,9 +27,9 @@ const App = () => {
           <Select/>
         </Route>
         <Route path="/mesas">
-          <TableButton />
-          <InputClient />
           <Header />
+          <TableButton />
+          {/*<InputClient />*/}
           <Background />
         </Route>
       </Switch>
