@@ -9,7 +9,6 @@ import Buttons from '../components/Buttons';
 import Select from '../components/Select';
 import Background from '../components/Background';
 import Header from '../components/Header';
-import InputClient from '../components/InputClient';
 import TableButton from '../components/TableButton';
 
 
@@ -29,8 +28,10 @@ const App = () => {
         <Route path="/mesas">
           <Header />
           <TableButton />
-          {/*<InputClient />*/}
           <Background />
+        </Route>
+        <Route path="/orden">
+          LALALA...
         </Route>
       </Switch>
     </Router>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { firebase } from '../firebase/firebase'
 import mesa from '../img/mesa.png'
+import { Link } from "react-router-dom";
 
 const TableButton = () => {
 
@@ -121,7 +122,7 @@ const TableButton = () => {
             onChange={e => setClient(e.target.value)}
             value={client}
           />
-          <button className="btnSend" type="submit">Enviar</button>
+          <Link to="/orden" className="btnSend" type="submit">Enviar</Link>
         </form>
       </div>
     </main>

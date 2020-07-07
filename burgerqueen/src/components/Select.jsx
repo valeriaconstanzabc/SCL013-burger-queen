@@ -1,9 +1,18 @@
 import React, {Fragment} from 'react'
+import { withRouter } from 'react-router-dom'
 
-const Select = () => {
+const Select = (props) => {
+
+    const [name, setName ] = React.useState('')
+
     return (
         <Fragment>
-            <select id="selectName">
+            <select id="selectName" onChange = {e => setName(e.target.value)} value={name}>
+                {
+                    name && (
+                        props.history.push('/mesas')
+                    )
+                }
                 <option value="">Selecciona tu Nombre</option>
                 <option value="">Marta Sanchez</option>
                 <option value="">Juan Carlos Bodoque</option>
@@ -13,4 +22,4 @@ const Select = () => {
     )
 }
 
-export default Select
+export default withRouter(Select)
