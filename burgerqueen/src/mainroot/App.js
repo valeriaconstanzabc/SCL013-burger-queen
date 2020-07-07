@@ -4,12 +4,19 @@ import {
   Switch,
   Route} from "react-router-dom";
 import './App.css';
+import '../components/componentsCss/Menu.css'
+import '../components/componentsCss/Order.css'
+
+
+
 import Welcome from '../components/Welcome';
 import Buttons from '../components/Buttons';
 import Select from '../components/Select';
 import Background from '../components/Background';
 import Header from '../components/Header';
 import TableButton from '../components/TableButton';
+import Menu from '../components/Menu';
+import Order from '../components/Order';
 
 
 const App = () => {
@@ -31,7 +38,15 @@ const App = () => {
           <Background />
         </Route>
         <Route path="/orden">
-          LALALA...
+         
+          <Header/>
+         
+          <Menu/>
+          <Order/>
+          
+          <Background/>
+          
+          
         </Route>
       </Switch>
     </Router>

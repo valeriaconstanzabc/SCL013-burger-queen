@@ -1,0 +1,46 @@
+#containerOrder{
+    background: red;
+    position: fixed;
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    background: #FFE1C5;
+    border: 1px solid #DB2742;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-left: 560px;
+    margin-top: 230px;
+}
+#orderTitle{
+    display: flex;
+    justify-content: space-around;
+}
+#orderTitle > h1{
+    font-family: 'Courgette', cursive;
+
+font-size: 30px;
+line-height: 40px;
+
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+}
+#detailOrder{
+    display: flex;
+    width: 380px;
+    flex-direction: column;
+}
+#orderList{
+    display: flex;
+    justify-content: space-around;
+    height: 300px;
+}
+
+#orderTotal{
+    width: 400px;
+}
