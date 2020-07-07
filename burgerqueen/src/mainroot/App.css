@@ -128,6 +128,14 @@
     border: 0;
     margin: 0px 30px 20px 30px;
 }
+
+.btnTable:focus{
+    background: rgba(0, 0, 0, 0.5);
+    outline: none;
+    border-radius: 15px;
+}
+
+
 .labelTable{
     position: fixed;
     margin-top: 20px;
