@@ -58,7 +58,7 @@ const TableButton = (props) => {
       setEditTable(false)
       setClient('')
       setIdTable('')
-      props.history.push('/orden')
+      props.history.push('/ordenBebestibles')
 
     } catch (error) {
       console.log(error)
