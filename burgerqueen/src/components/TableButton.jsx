@@ -1,9 +1,10 @@
 import React from 'react'
 import { firebase } from '../firebase/firebase'
 import mesa from '../img/mesa.png'
+import { withRouter } from 'react-router-dom'
 
 
-const TableButton = () => {
+const TableButton = (props) => {
 
   const [tables, setTable] = React.useState([])
   const [client, setClient] = React.useState('')
@@ -57,6 +58,7 @@ const TableButton = () => {
       setEditTable(false)
       setClient('')
       setIdTable('')
+      props.history.push('/orden')
 
     } catch (error) {
       console.log(error)
@@ -104,4 +106,4 @@ const TableButton = () => {
   );
 }
 
-export default TableButton
+export default withRouter(TableButton)

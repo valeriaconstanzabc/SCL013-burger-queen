@@ -1,14 +1,14 @@
+//<----------------Librerias----------------------->
 import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route} from "react-router-dom";
+//<----------------Css----------------------------->
 import './App.css';
 import '../components/componentsCss/Menu.css'
 import '../components/componentsCss/Order.css'
-
-
-
+//<----------------Componentes--------------------->
 import Welcome from '../components/Welcome';
 import Buttons from '../components/Buttons';
 import Select from '../components/Select';
@@ -17,8 +17,10 @@ import Header from '../components/Header';
 import TableButton from '../components/TableButton';
 import Menu from '../components/Menu';
 import Order from '../components/Order';
+import ButtonsMenu from '../components/ButtonsMenu';
+import DrinksMenu from '../components/DrinksMenu';
 
-
+//<----------------Función rutas------------------->
 const App = () => {
   return (
     <Router>
@@ -37,16 +39,29 @@ const App = () => {
           <TableButton />
           <Background />
         </Route>
-        <Route path="/orden">
-         
+        <Route path="/ordenBebestibles">
           <Header/>
-         
           <Menu/>
+          <ButtonsMenu />
+          <DrinksMenu />
           <Order/>
-          
           <Background/>
+        </Route>
+        <Route path="/ordenComestibles">
+          <Header/>
+          <Menu/>
+          <ButtonsMenu />
           
-          
+          <Order/>
+          <Background/>
+        </Route>
+        <Route path="/ordenAgregados">
+          <Header/>
+          <Menu/>
+          <ButtonsMenu />
+
+          <Order/>
+          <Background/>
         </Route>
       </Switch>
     </Router>
