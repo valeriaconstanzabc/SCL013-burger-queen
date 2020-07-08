@@ -43,7 +43,8 @@ const App = () => {
           <Header/>
           <Menu/>
           <ButtonsMenu />
-          <DrinksMenu />
+          <DrinksMenu 
+          />         
           <Order/>
           <Background/>
         </Route>
