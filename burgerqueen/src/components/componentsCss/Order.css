@@ -59,6 +59,7 @@
     font-size: 23px;
     width: 170px;
     height: 50px;
+    font-weight: bold;
 }
 #containerButtonsOrder > #returnButton{
     font-family: 'Courgette', cursive;
@@ -70,4 +71,5 @@
     font-size: 23px;
     width: 170px;
     height: 50px;
+    font-weight: bold;
 }

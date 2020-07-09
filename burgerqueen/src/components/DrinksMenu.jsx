@@ -1,13 +1,4 @@
 import React from 'react'
-// import Agua from '../img/agua.png'
-// import Batido from '../img/batido.png'
-// import Cafe1 from '../img/cafe1.png'
-// import Cafe3 from '../img/cafe3.png'
-// import Cafe4 from '../img/cafe4.png'
-// import Jugo from '../img/jugo.png'
-// import Soda from '../img/soda.png'
-// import Te1 from '../img/te1.png'
-// import Te2 from '../img/te2.png'
 import '../components/componentsCss/DrinksMenu.css'
 import { firebase } from '../firebase/firebase'
 
@@ -17,7 +8,7 @@ const DrinksMenu = () => {
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    const [coffeDrinks, setCoffeDrinks] =React.useState([])
+    const [objectProduct, setObjectProduct] =React.useState({})
     // const [idProduct, setIdProduct] = React.useState('')
     //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
@@ -59,6 +50,8 @@ const DrinksMenu = () => {
         objectProduct.priceProduct = item.price
         
         console.log(objectProduct)
+        
+        setObjectProduct(objectProduct)
         return objectProduct
     }
 

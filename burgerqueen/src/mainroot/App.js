@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route} from "react-router-dom";
+  import OrderProvider from '../context/OrderProvider'
 //<----------------Css----------------------------->
 import './App.css';
 import '../components/componentsCss/Menu.css'
@@ -39,31 +40,33 @@ const App = () => {
           <TableButton />
           <Background />
         </Route>
-        <Route path="/ordenBebestibles">
-          <Header/>
-          <Menu/>
-          <ButtonsMenu />
-          <DrinksMenu 
-          />         
-          <Order/>
-          <Background/>
-        </Route>
-        <Route path="/ordenComestibles">
-          <Header/>
-          <Menu/>
-          <ButtonsMenu />
-          
-          <Order/>
-          <Background/>
-        </Route>
-        <Route path="/ordenAgregados">
-          <Header/>
-          <Menu/>
-          <ButtonsMenu />
+        <OrderProvider>
+          <Route path="/ordenBebestibles">
+            <Header/>
+            <Menu/>
+            <ButtonsMenu />
+            <DrinksMenu 
+            />         
+            <Order/>
+            <Background/>
+          </Route>
+          <Route path="/ordenComestibles">
+            <Header/>
+            <Menu/>
+            <ButtonsMenu />
+            
+            <Order/>
+            <Background/>
+          </Route>
+          <Route path="/ordenAgregados">
+            <Header/>
+            <Menu/>
+            <ButtonsMenu />
 
-          <Order/>
-          <Background/>
-        </Route>
+            <Order/>
+            <Background/>
+          </Route>
+        </OrderProvider>
       </Switch>
     </Router>
   );
