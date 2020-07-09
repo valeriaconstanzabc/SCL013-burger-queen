@@ -2,7 +2,8 @@ import React from 'react'
 
 const Order = () => {
     return (
-        <div id="containerOrder">
+        <div id="containerOrderandButtons">
+            <div id="containerOrder">
             <div id="orderTitle">
                 <h1>Mesa 1</h1>
                 <p className="dateAndHour">Fecha:</p>
@@ -26,6 +27,15 @@ const Order = () => {
                 </div>
             </div>
         </div>
+        <div id="containerButtonsOrder">
+            <button id="returnButton">
+             Volver
+            </button>
+            <button id="sendToKitchenButton">
+            A la cocina
+            </button>
+        </div>
+    </div>
     )
 }
 

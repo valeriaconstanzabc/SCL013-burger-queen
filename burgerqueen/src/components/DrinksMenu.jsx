@@ -15,8 +15,10 @@ const DrinksMenu = () => {
 
     const [products, setProducts] = React.useState([])
     const [coldDrinks, setColdDrinks] = React.useState([])
+    const [teaDrinks, setTeaDrinks] =React.useState([])
+    const [coffeDrinks, setCoffeDrinks] =React.useState([])
     const [idProduct, setIdProduct] = React.useState('')
-    const [idColdDrinks, setIdColdDrinks] = React.useState('')
+    //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
     React.useEffect(() => {
         // traigo la data desde firebase
@@ -30,10 +32,17 @@ const DrinksMenu = () => {
                 const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data()}))
                 console.log(arrayData)
                 const arrayColdDrinks = arrayData.filter(arrayData => arrayData.category === "bebidas frias")
+                const arrayTeaDrinks = arrayData.filter(arrayData => arrayData.category === "tes")
+                const arrayCoffeDrinks = arrayData.filter(arrayData => arrayData.category === "cafes")
+
+
+
                 console.log(arrayColdDrinks)
 
                 setProducts(arrayData)
                 setColdDrinks(arrayColdDrinks)
+                setTeaDrinks(arrayTeaDrinks)
+                setCoffeDrinks(arrayCoffeDrinks)
             } catch (error) {
                 console.log(error)
             }
@@ -47,7 +56,7 @@ const DrinksMenu = () => {
       }
 
 
-    const getNameProduct = async (e) => {
+   /* const getNameProduct = async (e) => {
       e.preventDefault()  
         try {
             const getColdDrinks= coldDrinks.map(item => (
@@ -64,11 +73,18 @@ const DrinksMenu = () => {
         } catch (error) {
             console.log(error)
         }
-    }
+    }*/
 
     return (
         <div id="containerDrinks">
+            <div className="containerTittle">
+                    <hr className="hr"/>
+                    <h3>Bebidas frias</h3>
+                    <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
             <div className="containerbtnDrinks">
+
                 {
                     coldDrinks.map(item => (
                         <button type="button" className="btnDrinks">
@@ -78,7 +94,51 @@ const DrinksMenu = () => {
                         </button>
                     ))
                 }
+
                 
+            </div>
+            </div>
+            <div className="containerTittle">
+                    <hr className="hr"/>
+                    <h3>Tés</h3>
+                    <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+            <div className="containerbtnDrinks">
+
+                {
+                    teaDrinks.map(item => (
+                        <button type="button" className="btnDrinks">
+                            <img src={item.img} alt="" className="imgDrinks"></img>
+                            <p className="textDrinks" list key={item.nameproduct}>
+                                {item.nameproduct}</p>
+                        </button>
+                    ))
+                }
+                
+                
+            </div>
+            </div>
+            <div className="containerTittle">
+                    <hr className="hr"/>
+                    <h3>Cafés</h3>
+                    <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+            <div className="containerbtnDrinks">
+
+                {
+                    coffeDrinks.map(item => (
+                        <button type="button" className="btnDrinks">
+                            <img src={item.img} alt="" className="imgDrinks"></img>
+                            <p className="textDrinks" list key={item.nameproduct}>
+                                {item.nameproduct}</p>
+                        </button>
+                    ))
+                }
+                
+                
+            </div>
             </div>
         </div>
     )
