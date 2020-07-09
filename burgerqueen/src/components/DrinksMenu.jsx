@@ -17,7 +17,8 @@ const DrinksMenu = () => {
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    const [idProduct, setIdProduct] = React.useState('')
+    const [coffeDrinks, setCoffeDrinks] =React.useState([])
+    // const [idProduct, setIdProduct] = React.useState('')
     //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
     React.useEffect(() => {
@@ -51,9 +52,15 @@ const DrinksMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
-        setProducts('')
-        setIdProduct(item.id)
-      }
+        // setProducts('')
+        // setIdProduct(item.id)
+        let objectProduct = new Object()
+        objectProduct.nameProduct = item.nameproduct
+        objectProduct.priceProduct = item.price
+        
+        console.log(objectProduct)
+        return objectProduct
+    }
 
 
    /* const getNameProduct = async (e) => {
@@ -82,63 +89,58 @@ const DrinksMenu = () => {
                     <h3>Bebidas frias</h3>
                     <hr className="hr"/>
             </div>
+            
             <div className="containerProductDrinks">
-            <div className="containerbtnDrinks">
-
-                {
-                    coldDrinks.map(item => (
-                        <button type="button" className="btnDrinks">
-                            <img src={item.img} alt="" className="imgDrinks"></img>
-                            <p className="textDrinks" list key={item.nameproduct}>
-                                {item.nameproduct}</p>
-                        </button>
-                    ))
-                }
-
-                
+                <div className="containerbtnDrinks">
+                    {
+                        coldDrinks.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" list key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }
+                </div>
             </div>
-            </div>
+
             <div className="containerTittle">
                     <hr className="hr"/>
                     <h3>Tés</h3>
                     <hr className="hr"/>
             </div>
-            <div className="containerProductDrinks">
-            <div className="containerbtnDrinks">
 
-                {
-                    teaDrinks.map(item => (
-                        <button type="button" className="btnDrinks">
-                            <img src={item.img} alt="" className="imgDrinks"></img>
-                            <p className="textDrinks" list key={item.nameproduct}>
-                                {item.nameproduct}</p>
-                        </button>
-                    ))
-                }
-                
-                
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        teaDrinks.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" list key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
             </div>
-            </div>
+
             <div className="containerTittle">
                     <hr className="hr"/>
                     <h3>Cafés</h3>
                     <hr className="hr"/>
             </div>
             <div className="containerProductDrinks">
-            <div className="containerbtnDrinks">
-
-                {
-                    coffeDrinks.map(item => (
-                        <button type="button" className="btnDrinks">
-                            <img src={item.img} alt="" className="imgDrinks"></img>
-                            <p className="textDrinks" list key={item.nameproduct}>
-                                {item.nameproduct}</p>
-                        </button>
-                    ))
-                }
-                
-                
-            </div>
+                <div className="containerbtnDrinks">
+                    {
+                        coffeDrinks.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" list key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
             </div>
         </div>
     )
