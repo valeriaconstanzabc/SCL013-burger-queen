@@ -47,7 +47,7 @@ const App = () => {
             <ButtonsMenu />
             <DrinksMenu 
             />         
-            <Order/>
+       
             <Background/>
           </Route>
           <Route path="/ordenComestibles">
