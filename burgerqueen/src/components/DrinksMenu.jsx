@@ -1,6 +1,7 @@
 import React from 'react'
 import '../components/componentsCss/DrinksMenu.css'
 import { firebase } from '../firebase/firebase'
+import Order from './Order'
 
 const DrinksMenu = () => {
 
@@ -77,14 +78,18 @@ const DrinksMenu = () => {
 
     return (
         <div id="containerDrinks">
+            <Order objectProduct={objectProduct}/>
             <div className="containerTittle">
                     <hr className="hr"/>
                     <h3>Bebidas frias</h3>
                     <hr className="hr"/>
             </div>
             
+            
             <div className="containerProductDrinks">
+            
                 <div className="containerbtnDrinks">
+                
                     {
                         coldDrinks.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
@@ -105,6 +110,7 @@ const DrinksMenu = () => {
 
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
+                    
                     {
                         teaDrinks.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
