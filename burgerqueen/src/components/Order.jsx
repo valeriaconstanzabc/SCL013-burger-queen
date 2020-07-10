@@ -1,6 +1,10 @@
 import React from 'react'
+// import { orderContext } from '../context/OrderProvider'
 
-const Order = () => {
+const Order = (props) => {
+
+    // const {objectProductt, setObjectProductt} = React.useContext(orderContext)
+
     return (
         <div id="containerOrderandButtons">
             <div id="containerOrder">
@@ -15,7 +19,8 @@ const Order = () => {
                 <div id="orderList">
                     <h3>Producto</h3>
                     <h3>Precio</h3>
-                    
+                    <p>{props.objectProduct}</p>
+                    {console.log(props.objectProduct)}
                 </div>
                 <hr/>
                 <div>

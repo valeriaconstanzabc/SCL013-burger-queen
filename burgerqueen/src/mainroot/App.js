@@ -40,14 +40,15 @@ const App = () => {
           <TableButton />
           <Background />
         </Route>
-        <OrderProvider>
+        
           <Route path="/ordenBebestibles">
             <Header/>
             <Menu/>
             <ButtonsMenu />
-            <DrinksMenu 
-            />         
-            <Order/>
+            <DrinksMenu />  
+            {/* <OrderProvider>        */}
+              <Order />
+            {/* </OrderProvider> */}
             <Background/>
           </Route>
           <Route path="/ordenComestibles">
@@ -66,7 +67,7 @@ const App = () => {
             <Order/>
             <Background/>
           </Route>
-        </OrderProvider>
+        
       </Switch>
     </Router>
   );

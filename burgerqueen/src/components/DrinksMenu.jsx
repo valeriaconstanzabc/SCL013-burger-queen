@@ -1,6 +1,8 @@
 import React from 'react'
 import '../components/componentsCss/DrinksMenu.css'
 import { firebase } from '../firebase/firebase'
+import Order from '../components/Order'
+
 
 const DrinksMenu = () => {
 
@@ -8,7 +10,7 @@ const DrinksMenu = () => {
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    const [objectProduct, setObjectProduct] =React.useState({})
+    const [objectProduct, setObjectProduct] =React.useState('')
     // const [idProduct, setIdProduct] = React.useState('')
     //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
@@ -43,37 +45,16 @@ const DrinksMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
-        // setProducts('')
-        // setIdProduct(item.id)
+
         let objectProduct = new Object()
         objectProduct.nameProduct = item.nameproduct
         objectProduct.priceProduct = item.price
         
         console.log(objectProduct)
-        
+
         setObjectProduct(objectProduct)
         return objectProduct
     }
-
-
-   /* const getNameProduct = async (e) => {
-      e.preventDefault()  
-        try {
-            const getColdDrinks= coldDrinks.map(item => (
-                item.id === idColdDrinks ? { nameproduct: item.nameproduct, price: item.price} : item
-            ))
-            const arrayEdit = products.map(item => (
-                item.id === idProduct ? { nameproduct: item.nameproduct, price: item.price} : item
-            ))
-            setProducts(arrayEdit)
-            setIdProduct('')
-            setColdDrinks(getColdDrinks)
-            setIdColdDrinks('')
-
-        } catch (error) {
-            console.log(error)
-        }
-    }*/
 
     return (
         <div id="containerDrinks">
@@ -85,14 +66,17 @@ const DrinksMenu = () => {
             
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
+                <Order objectProduct={objectProduct} />
                     {
                         coldDrinks.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                                
                                 <img src={item.img} alt="" className="imgDrinks"></img>
                                 <p className="textDrinks" list key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))
+                        
                     }
                 </div>
             </div>

@@ -1,16 +1,16 @@
-import React from 'react'
+// import React from 'react'
 
-export const orderContext = React.createContext()
+// export const orderContext = React.createContext()
 
-const OrderProvider = (props) => {
+// const OrderProvider = (props) => {
 
-    const [] = React.useState()
+//     const [objectProductt, setObjectProductt] =React.useState({objectProduct})
 
-    return (
-        <orderContext.Provider>
-            {props.children}
-        </orderContext.Provider>
-    )
-}
+//     return (
+//         <orderContext.Provider value={{objectProductt, setObjectProductt}}>
+//             {props.children}
+//         </orderContext.Provider>
+//     )
+// }
 
-export default OrderProvider
+// export default OrderProvider
