@@ -20,6 +20,7 @@ import Menu from '../components/Menu';
 import Order from '../components/Order';
 import ButtonsMenu from '../components/ButtonsMenu';
 import DrinksMenu from '../components/DrinksMenu';
+import FoodMenu from '../components/FoodMenu';
 
 //<----------------Función rutas------------------->
 const App = () => {
@@ -55,7 +56,7 @@ const App = () => {
             <Menu/>
             <ButtonsMenu />
             
-            <Order/>
+            <FoodMenu/>
             <Background/>
           </Route>
           <Route path="/ordenAgregados">
