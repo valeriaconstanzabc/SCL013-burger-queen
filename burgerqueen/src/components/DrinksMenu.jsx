@@ -15,8 +15,6 @@ const DrinksMenu = () => {
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
     const [objectProduct, setObjectProduct] =React.useState(data)
-    // const [idProduct, setIdProduct] = React.useState('')
-    //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
     React.useEffect(() => {
         // traigo la data desde firebase
@@ -33,8 +31,6 @@ const DrinksMenu = () => {
                 const arrayTeaDrinks = arrayData.filter(arrayData => arrayData.category === "tes")
                 const arrayCoffeDrinks = arrayData.filter(arrayData => arrayData.category === "cafes")
 
-
-
                 console.log(arrayColdDrinks)
 
                 setProducts(arrayData)
@@ -50,55 +46,28 @@ const DrinksMenu = () => {
 
     const activateClickProduct = (item) => {
 
-        // setProducts('')
-        // setIdProduct(item.id)
         let objectProductt = {
-        nameProduct: item.nameproduct,
-        priceProduct: item.price
-    }
-        
-        
-        console.log(objectProductt)
-        
-        setObjectProduct([...objectProduct, objectProductt])
-     
-
-    }
-
-
-   /* const getNameProduct = async (e) => {
-      e.preventDefault()  
-        try {
-            const getColdDrinks= coldDrinks.map(item => (
-                item.id === idColdDrinks ? { nameproduct: item.nameproduct, price: item.price} : item
-            ))
-            const arrayEdit = products.map(item => (
-                item.id === idProduct ? { nameproduct: item.nameproduct, price: item.price} : item
-            ))
-            setProducts(arrayEdit)
-            setIdProduct('')
-            setColdDrinks(getColdDrinks)
-            setIdColdDrinks('')
-
-        } catch (error) {
-            console.log(error)
+            nameProduct: item.nameproduct,
+            priceProduct: item.price
         }
-    }*/
+
+        console.log(objectProductt)
+        console.log(products)
+
+        setObjectProduct([...objectProduct, objectProductt])
+    }
 
     return (
-        <div id="containerDrinks">
-            <Order objectProduct={objectProduct}/>
+        <div id="containerDrinks" key={objectProduct}>
+            <Order objectProduct={objectProduct} key={objectProduct}/>
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Bebidas frias</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Bebidas frias</h3>
+                <hr className="hr"/>
             </div>
-            
-            
+
             <div className="containerProductDrinks">
-            
                 <div className="containerbtnDrinks">
-                
                     {
                         coldDrinks.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
@@ -112,14 +81,13 @@ const DrinksMenu = () => {
             </div>
 
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Tés</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Tés</h3>
+                <hr className="hr"/>
             </div>
 
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
-                    
                     {
                         teaDrinks.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
@@ -133,10 +101,11 @@ const DrinksMenu = () => {
             </div>
 
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Cafés</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Cafés</h3>
+                <hr className="hr"/>
             </div>
+            
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
                     {

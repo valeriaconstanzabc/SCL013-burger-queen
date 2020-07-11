@@ -5,10 +5,12 @@ import Order from './Order'
 
 const FoodMenu = () => {
 
-
+    const data = [
+        {nameProduct: ''},
+        {priceProduct: ''}
+    ]
 
     const [products, setProducts] = React.useState([])
-
     const [BurgerFood, setBurgerFood] = React.useState([])
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
@@ -33,10 +35,10 @@ const FoodMenu = () => {
                 console.log(arraySandwichFoods)
                 console.log(arrayDessertFoods)
 
+                setProducts(arrayData)
                 setBurgerFood(arrayBurgerFoods)
                 setSandwichFood(arraySandwichFoods)
                 setDessertFood(arrayDessertFoods)
-
             }catch (error) {
                 console.log(error)
             }
@@ -46,30 +48,29 @@ const FoodMenu = () => {
 
     const activateClickProduct = (item) => {
 
-        let objectProduct = {}
+        let objectProductt = {
+            nameProduct: item.nameproduct,
+            priceProduct: item.price
+        }
 
-        objectProduct.nameProduct = item.nameproduct
-        objectProduct.priceProduct = item.price
-        
         console.log(objectProductt)
-        
-        setObjectProduct(...objectProduct, objectProductt)
+        console.log(products)
+
+        setObjectProduct([...objectProduct, objectProductt])
     }
+
     //"Pintando" la pagina de comestibles
     return (
         <div id="containerFoods">
             <Order objectProduct={objectProduct}/>
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Hamburguesas</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Hamburguesas</h3>
+                <hr className="hr"/>
             </div>
-            
-            
+
             <div className="containerProductFoods">
-            
                 <div className="containerbtnFoods">
-                
                     {
                         BurgerFood.map(item => (
                             <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
@@ -83,14 +84,13 @@ const FoodMenu = () => {
             </div>
 
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Sandwich</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Sandwich</h3>
+                <hr className="hr"/>
             </div>
 
             <div className="containerProductFoods">
                 <div className="containerbtnFoods">
-                    
                     {
                         SandwichFood.map(item => (
                             <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
@@ -104,10 +104,11 @@ const FoodMenu = () => {
             </div>
 
             <div className="containerTittle">
-                    <hr className="hr"/>
-                    <h3>Antojos</h3>
-                    <hr className="hr"/>
+                <hr className="hr"/>
+                <h3>Antojos</h3>
+                <hr className="hr"/>
             </div>
+
             <div className="containerProductFoods">
                 <div className="containerbtnFoods">
                     {
@@ -123,7 +124,6 @@ const FoodMenu = () => {
             </div>
         </div>
     )
-
 }
 
 export default FoodMenu

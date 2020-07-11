@@ -21,7 +21,9 @@ const TableButton = (props) => {
         console.log(data.docs)
         //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+
         console.log(arrayData)
+
         setTable(arrayData)
       } catch (error) {
         console.log(error)
@@ -41,19 +43,23 @@ const TableButton = (props) => {
   const addNameClient = async (e) => {
     e.preventDefault()
     ///PEDIENTE VALIDACION///
+
     if (!client.trim()) {
       console.log('campo vacio')
       return
     }
+
     try {
       const db = firebase.firestore()
       await db.collection('mesas').doc(idTable).update({
         nameClient: client,
         fecha: Date.now()
       })
+
       const arrayEdit = tables.map(item => (
         item.id === idTable ? { name: item.name, nameClient: tables, fecha: Date.now() } : item
       ))
+
       setTable(arrayEdit)
       setEditTable(false)
       setClient('')
@@ -64,8 +70,6 @@ const TableButton = (props) => {
       console.log(error)
     }
   }
-  
-
 
   return (
     <main id="tableContainer">
@@ -79,6 +83,7 @@ const TableButton = (props) => {
             //item.id este es el id del elemento
             <button
               type="button"
+              key={item.id}
               className="btnTable"
               onClick={() => activateEditTable(item)}>
               <p className="labelTable" key={item.id}>
