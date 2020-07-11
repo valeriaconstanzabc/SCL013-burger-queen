@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const Order = (props) => {
     console.log(props.objectProduct)
@@ -12,8 +12,18 @@ const Order = (props) => {
                 <hr />
                 <div id="detailOrder">
                     <div id="orderList">
-                        <h3>{props.objectProduct['nameProduct']}</h3>
-                        <h3>{props.objectProduct['priceProduct']}</h3>
+                        {
+                            props.objectProduct.map(obj => (
+                            <th >
+
+                            <h3>{obj.nameProduct}</h3>
+                            <h3>{obj.priceProduct}</h3>
+                            </th>
+                                
+                            ))
+                            }
+                        {/*<h3>{props.objectProduct.nameProduct}</h3>
+                        <h3>{props.objectProduct.priceProduct}</h3>*/}
                     </div>
                     <hr />
                     <div>
