@@ -5,10 +5,14 @@ import Order from './Order'
 
 const FoodMenu = () => {
 
+
+
+    const [products, setProducts] = React.useState([])
+
     const [BurgerFood, setBurgerFood] = React.useState([])
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
-    const [objectProduct, setObjectProduct] =React.useState({})
+    const [objectProduct, setObjectProduct] =React.useState(data)
 
     //Trayendo data de Firebase
     React.useEffect (() =>{
@@ -41,14 +45,15 @@ const FoodMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
+
         let objectProduct = {}
+
         objectProduct.nameProduct = item.nameproduct
         objectProduct.priceProduct = item.price
         
-        console.log(objectProduct)
+        console.log(objectProductt)
         
-        setObjectProduct(objectProduct)
-        return objectProduct
+        setObjectProduct(...objectProduct, objectProductt)
     }
     //"Pintando" la pagina de comestibles
     return (

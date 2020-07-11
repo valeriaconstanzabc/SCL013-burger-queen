@@ -5,11 +5,16 @@ import Order from './Order'
 
 const DrinksMenu = () => {
 
+    const data = [
+        {nameProduct: ''},
+        {priceProduct: ''}
+    ]
+
     const [products, setProducts] = React.useState([])
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    const [objectProduct, setObjectProduct] =React.useState({})
+    const [objectProduct, setObjectProduct] =React.useState(data)
     // const [idProduct, setIdProduct] = React.useState('')
     //const [idColdDrinks, setIdColdDrinks] = React.useState('')
 
@@ -44,14 +49,20 @@ const DrinksMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
-        let objectProduct = {}
-        objectProduct.nameProduct = item.nameproduct
-        objectProduct.priceProduct = item.price
+
+        // setProducts('')
+        // setIdProduct(item.id)
+        let objectProductt = {
+        nameProduct: item.nameproduct,
+        priceProduct: item.price
+    }
         
-        console.log(objectProduct)
-        console.log(products)
-        setObjectProduct(objectProduct)
-        return objectProduct
+        
+        console.log(objectProductt)
+        
+        setObjectProduct([...objectProduct, objectProductt])
+     
+
     }
 
 
