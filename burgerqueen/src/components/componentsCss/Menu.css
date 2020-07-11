@@ -1,3 +1,8 @@
+/*Para que no se marquen los subrayados de los link */
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
 #menuContainer{
     background: transparent;
     display: flex;
@@ -15,7 +20,6 @@
 
 }
 .containerNewOrder, .containerDeliverOrder{
-    
     display: flex;
     justify-content: center;
     width: 200px;
@@ -24,14 +28,11 @@
     border: 1px solid #6B3D2E;
     box-sizing: border-box;
     border-radius: 15px 15px 0px 0px;
-
-
 }
 .containerDeliverOrder{
     margin-left: 10px;
 }
 .btnNewOrder, .btnDeliverOrder{
-   
     text-align: center; 
     width: 100px;
     background: transparent;
@@ -44,10 +45,9 @@
     color: #000000;
 }
 
-
 .containerProducts{
     background: rgba(255, 195, 125, 0.85);
-    height: 700px;
+    height: 455px;
     width: 450px;
     border: 1px solid #6B3D2E;
     box-sizing: border-box;

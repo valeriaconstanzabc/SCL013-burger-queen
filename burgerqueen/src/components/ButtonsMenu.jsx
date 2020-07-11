@@ -1,12 +1,19 @@
 import React from 'react'
 import '../components/componentsCss/ButtonsMenu.css'
+import { Link } from "react-router-dom";
 
 const ButtonsMenu = () => {
     return (
         <div id="containerbtnFoods">
-            <button className="btnFoods">Bebestibles</button>
-            <button className="btnFoods">Comestibles</button>
-            <button className="btnFoods">Agregados</button>
+            <Link to="/ordenBebestibles">
+                <button className="btnFoodss">Bebestibles</button>
+            </Link>
+            <Link to="/ordenComestibles">
+                <button className="btnFoodss">Comestibles</button>
+            </Link>
+            <Link to="/ordenAgregados">
+                <button className="btnFoodss">Agregados</button>
+            </Link>
         </div>
     )
 }

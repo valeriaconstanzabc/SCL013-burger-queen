@@ -5,7 +5,6 @@ import Order from './Order'
 
 const FoodMenu = () => {
 
-    const [products, setProducts] = React.useState([])
     const [BurgerFood, setBurgerFood] = React.useState([])
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
@@ -42,9 +41,7 @@ const FoodMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
-        // setProducts('')
-        // setIdProduct(item.id)
-        let objectProduct = new Object()
+        let objectProduct = {}
         objectProduct.nameProduct = item.nameproduct
         objectProduct.priceProduct = item.price
         
@@ -70,9 +67,9 @@ const FoodMenu = () => {
                 
                     {
                         BurgerFood.map(item => (
-                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)}>
+                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgFoods"></img>
-                                <p className="textFoods" list key={item.nameproduct}>
+                                <p className="textFoods" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))
@@ -91,9 +88,9 @@ const FoodMenu = () => {
                     
                     {
                         SandwichFood.map(item => (
-                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)}>
+                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgFoods"></img>
-                                <p className="textFoods" list key={item.nameproduct}>
+                                <p className="textFoods" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))
@@ -110,9 +107,9 @@ const FoodMenu = () => {
                 <div className="containerbtnFoods">
                     {
                         DessertFood.map(item => (
-                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)}>
+                            <button type="button" className="btnFoods" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgFoods"></img>
-                                <p className="textFoods" list key={item.nameproduct}>
+                                <p className="textFoods" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))

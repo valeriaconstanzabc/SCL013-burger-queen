@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const Order = (props) => {
     console.log(props.objectProduct)
@@ -12,12 +13,13 @@ const Order = (props) => {
                 <hr />
                 <div id="detailOrder">
                     <div id="orderList">
-                        <h3>{props.objectProduct['nameProduct']}</h3>
-                        <h3>{props.objectProduct['priceProduct']}</h3>
+                        <h3>Productos</h3>
+                        <h3>Precio</h3>
                     </div>
                     <hr />
-                    <div>
-
+                    <div className="containerOrderProduct">
+                        <h3>{props.objectProduct['nameProduct']}</h3>
+                        <h3>{props.objectProduct['priceProduct']}</h3>
                     </div>
                     <div id="orderTotal">
                         <hr />
@@ -26,9 +28,9 @@ const Order = (props) => {
                 </div>
             </div>
             <div id="containerButtonsOrder">
-                <button id="returnButton">
-                    Volver
-            </button>
+                <Link to="/mesas">
+                    <button id="returnButton">Volver</button>
+                </Link>
                 <button id="sendToKitchenButton">
                     A la cocina
             </button>

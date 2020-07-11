@@ -44,14 +44,12 @@ const DrinksMenu = () => {
     }, [])
 
     const activateClickProduct = (item) => {
-        // setProducts('')
-        // setIdProduct(item.id)
-        let objectProduct = new Object()
+        let objectProduct = {}
         objectProduct.nameProduct = item.nameproduct
         objectProduct.priceProduct = item.price
         
         console.log(objectProduct)
-        
+        console.log(products)
         setObjectProduct(objectProduct)
         return objectProduct
     }
@@ -92,9 +90,9 @@ const DrinksMenu = () => {
                 
                     {
                         coldDrinks.map(item => (
-                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
-                                <img src={item.img} alt="" className="imgDrinks"></img>
-                                <p className="textDrinks" list key={item.nameproduct}>
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks" ></img>
+                                <p className="textDrinks" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))
@@ -113,9 +111,9 @@ const DrinksMenu = () => {
                     
                     {
                         teaDrinks.map(item => (
-                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgDrinks"></img>
-                                <p className="textDrinks" list key={item.nameproduct}>
+                                <p className="textDrinks" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))
@@ -132,9 +130,9 @@ const DrinksMenu = () => {
                 <div className="containerbtnDrinks">
                     {
                         coffeDrinks.map(item => (
-                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)}>
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgDrinks"></img>
-                                <p className="textDrinks" list key={item.nameproduct}>
+                                <p className="textDrinks" key={item.nameproduct}>
                                     {item.nameproduct}</p>
                             </button>
                         ))

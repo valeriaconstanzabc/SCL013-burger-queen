@@ -81,7 +81,7 @@ const TableButton = (props) => {
               type="button"
               className="btnTable"
               onClick={() => activateEditTable(item)}>
-              <p className="labelTable" labelTable key={item.id}>
+              <p className="labelTable" key={item.id}>
                 {item.name}</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
             </button>
