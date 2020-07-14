@@ -20,6 +20,7 @@ import Menu from '../components/Menu';
 import ButtonsMenu from '../components/ButtonsMenu';
 import DrinksMenu from '../components/DrinksMenu';
 import FoodMenu from '../components/FoodMenu';
+import {UserProvider} from '../context/UserContext'
 
 //<----------------Función rutas------------------->
 const App = () => {
@@ -36,16 +37,20 @@ const App = () => {
           <Select/>
         </Route>
         <Route path="/mesas">
+          <UserProvider>
           <Header />
           <TableButton />
           <Background />
+          </UserProvider>
         </Route>
           <Route path="/ordenBebestibles">
+            <UserProvider>
             <Header/>
             <Menu/>
             <ButtonsMenu />
             <DrinksMenu />       
             <Background/>
+            </UserProvider>
           </Route>
           <Route path="/ordenComestibles">
             <Header/>
