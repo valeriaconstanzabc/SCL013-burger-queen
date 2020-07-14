@@ -42,7 +42,7 @@ const Order = (props) => {
                             <h3>Total:</h3>
                             <h3>$ {[props.sum.push]}</h3> 
                         </div>                       
-                    </div> 
+                    </div>
                 </div>
             </div>
 
