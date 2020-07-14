@@ -22,8 +22,10 @@ const DrinksMenu = () => {
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
 
-    const [totalPrice, setTotalPrice] = React.useState([]);
-    const [sum] = React.useState([]);
+    const [totalPrice, setTotalPrice] = React.useState([])
+    const [sum] = React.useState([])
+
+    const[sumName, setSumName] = React.useState([])
 
 
     React.useEffect(() => {
@@ -81,6 +83,34 @@ const DrinksMenu = () => {
         totalPrice.push(productPrice)
         setTotalPrice([...totalPrice])
         console.log(sum)
+
+        const name = objectProduct.map(objt =>
+            objt.nameProduct
+        )
+        console.log(name)
+    
+        const price = objectProduct.map(objt =>
+            objt.priceProduct
+        )
+        console.log(price)
+
+
+        
+        const sumName= name.reduce((contadorName, name) => {
+        contadorName[name]= (contadorName[name] || 0) + 1
+        return contadorName
+        }, {})
+      
+
+    
+        console.log(sumName)
+    
+        const sumPrice= price.reduce((contadorPrice, price) => {
+            contadorPrice[price]= (contadorPrice[price] || 0) + 1
+            return contadorPrice
+            }, {})
+        
+            console.log(sumPrice)
     }
 
     return (
@@ -100,7 +130,7 @@ const DrinksMenu = () => {
             </div>
 
 
-            <Order objectProduct={objectProduct} sum={sum} key={objectProduct}/>
+            <Order objectProduct={objectProduct} sum={sum} sumName ={sumName} key={objectProduct}/>
             <div className="containerTittle">
                 <a name="Bebestibles" id="Bebestibles"></a>
                 <hr className="hr"/>
