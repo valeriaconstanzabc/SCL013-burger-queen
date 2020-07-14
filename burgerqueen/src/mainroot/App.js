@@ -17,9 +17,7 @@ import Header from '../components/Header';
 import TableButton from '../components/TableButton';
 import Menu from '../components/Menu';
 
-import ButtonsMenu from '../components/ButtonsMenu';
 import DrinksMenu from '../components/DrinksMenu';
-import FoodMenu from '../components/FoodMenu';
 import {UserProvider} from '../context/UserContext'
 
 //<----------------Función rutas------------------->
@@ -43,27 +41,13 @@ const App = () => {
           <Background />
           </UserProvider>
         </Route>
-          <Route path="/ordenBebestibles">
+          <Route path="/orden">
             <UserProvider>
             <Header/>
             <Menu/>
-            <ButtonsMenu />
             <DrinksMenu />       
             <Background/>
             </UserProvider>
-          </Route>
-          <Route path="/ordenComestibles">
-            <Header/>
-            <Menu/>
-            <ButtonsMenu />
-            <FoodMenu/>
-            <Background/>
-          </Route>
-          <Route path="/ordenAgregados">
-            <Header/>
-            <Menu/>
-            <ButtonsMenu />
-            <Background/>
           </Route>
       </Switch>
     </Router>

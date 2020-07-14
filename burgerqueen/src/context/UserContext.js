@@ -53,7 +53,7 @@ function UserProvider({children}){
         const db = firebase.firestore()
         await db.collection('mesas').doc(idTable).update({
           nameClient: client,
-          fecha: Date.now()
+          fecha: new Date().toLocaleString(),
         })
   
         const arrayEdit = tables.map(item => (

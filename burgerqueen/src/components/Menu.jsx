@@ -6,7 +6,7 @@ const Menu = () => {
         <div id="menuContainer">
             <div id="buttonsContainer">
                 <div className="containerNewOrder">
-                    <Link to="/ordenBebestibles">
+                    <Link to="/orden">
                         <button className="btnNewOrder">Nuevo Pedido</button>
                     </Link>
                 </div>

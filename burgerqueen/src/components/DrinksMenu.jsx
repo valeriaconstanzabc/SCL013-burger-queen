@@ -1,5 +1,6 @@
 import React from 'react'
 import '../components/componentsCss/DrinksMenu.css'
+import '../components/componentsCss/ButtonsMenu.css'
 import { firebase } from '../firebase/firebase'
 import Order from './Order'
 
@@ -11,10 +12,16 @@ const DrinksMenu = () => {
     ]
 
     const [products, setProducts] = React.useState([])
+    const [objectProduct, setObjectProduct] =React.useState(data)
+    
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    const [objectProduct, setObjectProduct] =React.useState(data)
+    
+    const [BurgerFood, setBurgerFood] = React.useState([])
+    const [SandwichFood, setSandwichFood]=React.useState([])
+    const [DessertFood, setDessertFood]=React.useState([])
+
     const [totalPrice, setTotalPrice] = React.useState([]);
     const [sum] = React.useState([]);
 
@@ -34,12 +41,20 @@ const DrinksMenu = () => {
                 const arrayTeaDrinks = arrayData.filter(arrayData => arrayData.category === "tes")
                 const arrayCoffeDrinks = arrayData.filter(arrayData => arrayData.category === "cafes")
 
+                const arrayBurgerFoods = arrayData.filter(arrayData => arrayData.category === "burger")
+                const arraySandwichFoods = arrayData.filter(arrayData => arrayData.category === "sandwich")
+                const arrayDessertFoods = arrayData.filter(arrayData => arrayData.category === "antojos")
+
                 console.log(arrayColdDrinks)
 
                 setProducts(arrayData)
                 setColdDrinks(arrayColdDrinks)
                 setTeaDrinks(arrayTeaDrinks)
                 setCoffeDrinks(arrayCoffeDrinks)
+
+                setBurgerFood(arrayBurgerFoods)
+                setSandwichFood(arraySandwichFoods)
+                setDessertFood(arrayDessertFoods)
             } catch (error) {
                 console.log(error)
             }
@@ -70,13 +85,28 @@ const DrinksMenu = () => {
 
     return (
         <div id="containerDrinks" key={objectProduct}>
+            <div id="containerbtnFoods">
+                <a href="#Bebestibles">
+                    <button className="btnFoodss">Bebestibles</button>
+                </a>
+
+                <a href="#Comestibles">
+                   <button className="btnFoodss">Comestibles</button>
+                </a>
+
+                <a href="#Agregados">
+                    <button className="btnFoodss">Agregados</button>
+                </a>
+            </div>
+
+
             <Order objectProduct={objectProduct} sum={sum} key={objectProduct}/>
             <div className="containerTittle">
+                <a name="Bebestibles" id="Bebestibles"></a>
                 <hr className="hr"/>
                 <h3>Bebidas frias</h3>
                 <hr className="hr"/>
             </div>
-
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
                     {
@@ -96,7 +126,6 @@ const DrinksMenu = () => {
                 <h3>Tés</h3>
                 <hr className="hr"/>
             </div>
-
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
                     {
@@ -116,11 +145,69 @@ const DrinksMenu = () => {
                 <h3>Cafés</h3>
                 <hr className="hr"/>
             </div>
-            
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
                     {
                         coffeDrinks.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
+            </div>
+
+            <div className="containerTittle">
+                <a name="Comestibles" id="Comestibles">
+                <hr className="hr"/>
+                <h3>Hamburguesas</h3>
+                <hr className="hr"/>
+                </a>
+            </div>
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        BurgerFood.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div className="containerTittle">
+                <hr className="hr"/>
+                <h3>Sandwich</h3>
+                <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        SandwichFood.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
+            </div>
+
+            <div className="containerTittle">
+                <hr className="hr"/>
+                <h3>Antojos</h3>
+                <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        DessertFood.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgDrinks"></img>
                                 <p className="textDrinks" key={item.nameproduct}>

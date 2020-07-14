@@ -1,4 +1,4 @@
-import React, {useContext, Fragment} from 'react'
+import React, {useContext} from 'react'
 import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
 import mesa from '../img/mesa.png'
@@ -9,11 +9,6 @@ import { withRouter } from 'react-router-dom'
 const TableButton = (props) => {
 
   let {tables,client,editTable,activateEditTable,addNameClient,setClient,setTable} = useContext(UserContext)
-
-  const historyTable= () =>{
-    {props.history.push('/ordenBebestibles')}
-  }
-
 
   return (
     <main id="tableContainer">
@@ -49,9 +44,9 @@ const TableButton = (props) => {
             onChange={e => setClient(e.target.value)}
             value={client}
           />
-          <button to="/ordenBebestibles" className="btnSend" type="submit">Enviar</button>
+          <button to="/orden" className="btnSend" type="submit">Enviar</button>
           <br></br>
-          <Link to="/ordenBebestibles"  className="btnSend" type="submit">Ir a pedido</Link>
+          <Link to="/orden"  className="btnSend" type="submit">Ir a pedido</Link>
         
         </form>
       </div>

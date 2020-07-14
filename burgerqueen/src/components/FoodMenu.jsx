@@ -15,6 +15,9 @@ const FoodMenu = () => {
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
     const [objectProduct, setObjectProduct] =React.useState(data)
+    const [totalPrice, setTotalPrice] = React.useState([]);
+    const [sum] = React.useState([]);
+
 
     //Trayendo data de Firebase
     React.useEffect (() =>{
@@ -55,14 +58,20 @@ const FoodMenu = () => {
 
         console.log(objectProductt)
         console.log(products)
-
         setObjectProduct([...objectProduct, objectProductt])
+
+        const productPrice = parseInt(item.price);
+        sum.push = totalPrice.reduce((price1, price2) => price1 + price2, item.price)
+        
+        totalPrice.push(productPrice)
+        setTotalPrice([...totalPrice])
+        console.log(sum)
     }
 
     //"Pintando" la pagina de comestibles
     return (
-        <div id="containerFoods">
-            <Order objectProduct={objectProduct}/>
+        <div id="containerFoods" key={objectProduct}>
+            <Order objectProduct={objectProduct} sum={sum} key={objectProduct}/>
             <div className="containerTittle">
                 <hr className="hr"/>
                 <h3>Hamburguesas</h3>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
 
 const Order = (props) => {
-    let {setClient,idTable} = useContext(UserContext)
+    let {setClient, idTable} = useContext(UserContext)
     console.log(idTable)
     console.log(props.objectProduct)
 
