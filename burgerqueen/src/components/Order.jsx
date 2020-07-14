@@ -1,15 +1,18 @@
-import React, { Fragment } from 'react'
+import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
+import {UserContext} from '../context/UserContext'
 
 const Order = (props) => {
-
+    let {setClient,idTable} = useContext(UserContext)
+    console.log(idTable)
     console.log(props.objectProduct)
 
     return (
         <div id="containerOrderandButtons">
             <div id="containerOrder">
                 <div id="orderTitle">
-                    <h1>Mesa 1</h1>
+                 <h1>{idTable}</h1>
+                 <h1>{setClient}</h1>
                     <p className="dateAndHour">Fecha:</p>
                 </div>
 
@@ -33,12 +36,13 @@ const Order = (props) => {
                             ))
                         }        
                     </Fragment>
-
                     <div id="orderTotal">
                         <hr />
-                        <h3>Total:</h3>
-                    </div>
-
+                        <div id="containerTotal">
+                            <h3>Total:</h3>
+                            <h3>$ {[props.sum.push]}</h3> 
+                        </div>                       
+                    </div> 
                 </div>
             </div>
 

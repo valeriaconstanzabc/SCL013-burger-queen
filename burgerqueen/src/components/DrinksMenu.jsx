@@ -15,6 +15,9 @@ const DrinksMenu = () => {
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
     const [objectProduct, setObjectProduct] =React.useState(data)
+    const [totalPrice, setTotalPrice] = React.useState([]);
+    const [sum] = React.useState([]);
+
 
     React.useEffect(() => {
         // traigo la data desde firebase
@@ -55,11 +58,19 @@ const DrinksMenu = () => {
         console.log(products)
 
         setObjectProduct([...objectProduct, objectProductt])
+
+        const productPrice = parseInt(item.price);
+
+        sum.push = totalPrice.reduce((price1, price2) => price1 + price2, item.price)
+        
+        totalPrice.push(productPrice)
+        setTotalPrice([...totalPrice])
+        console.log(sum)
     }
 
     return (
         <div id="containerDrinks" key={objectProduct}>
-            <Order objectProduct={objectProduct} key={objectProduct}/>
+            <Order objectProduct={objectProduct} sum={sum} key={objectProduct}/>
             <div className="containerTittle">
                 <hr className="hr"/>
                 <h3>Bebidas frias</h3>

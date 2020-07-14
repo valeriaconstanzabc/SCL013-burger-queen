@@ -56,9 +56,14 @@
 #orderTotal{
     position: fixed;
     font-family: 'Arya', sans-serif;
-    width: 100%;
+    width: 370px;
     padding-right:13px;
     padding-top: 290px;
+}
+
+#containerTotal{
+    display: flex;
+    justify-content: space-between;
 }
 
 #containerButtonsOrder {
