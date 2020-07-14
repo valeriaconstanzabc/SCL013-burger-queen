@@ -12,6 +12,7 @@
     margin-left: 460px;
     margin-top: -95px;
     padding: 15px;
+    
 }
 
 #orderTitle{
@@ -32,9 +33,14 @@
 }
 
 #detailOrder{
+    
     display: flex;
     width: 380px;
     flex-direction: column;
+    
+}
+#scrollProduct{
+    overflow: scroll;
 }
 
 #orderList{
@@ -44,6 +50,7 @@
     padding: 0px 22px 0px 13px;
     height: 30px;
     align-items: center;
+    
 }
 
 .containerOrderProduct{
@@ -51,6 +58,7 @@
     justify-content: space-between;
     font-family: 'Arya', sans-serif;
     padding: 0px 22px 0px 13px;
+    
 }
 
 #orderTotal{
