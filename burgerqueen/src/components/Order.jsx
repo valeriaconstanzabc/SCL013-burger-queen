@@ -25,7 +25,7 @@ const Order = (props) => {
                     </div>
 
                     <hr />
-
+                    
                     <Fragment>
                         {
                             props.objectProduct.map(obj => (
@@ -36,6 +36,7 @@ const Order = (props) => {
                             ))
                         }        
                     </Fragment>
+                    
                     <div id="orderTotal">
                         <hr />
                         <div id="containerTotal">

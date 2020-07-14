@@ -13,14 +13,17 @@ const DrinksMenu = () => {
 
     const [products, setProducts] = React.useState([])
     const [objectProduct, setObjectProduct] =React.useState(data)
-    
+    //Drinks
     const [coldDrinks, setColdDrinks] = React.useState([])
     const [teaDrinks, setTeaDrinks] =React.useState([])
     const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    
+    //Food
     const [BurgerFood, setBurgerFood] = React.useState([])
     const [SandwichFood, setSandwichFood]=React.useState([])
     const [DessertFood, setDessertFood]=React.useState([])
+    const [SweetsFood, setSweetsFood]=React.useState([])
+    //Toppings
+    const[Toppings, setToppings]=React.useState([])
 
     const [totalPrice, setTotalPrice] = React.useState([])
     const [sum] = React.useState([])
@@ -46,6 +49,10 @@ const DrinksMenu = () => {
                 const arrayBurgerFoods = arrayData.filter(arrayData => arrayData.category === "burger")
                 const arraySandwichFoods = arrayData.filter(arrayData => arrayData.category === "sandwich")
                 const arrayDessertFoods = arrayData.filter(arrayData => arrayData.category === "antojos")
+                const arraySweetFoods = arrayData.filter(arrayData => arrayData.category === "dulces")
+
+
+                const arrayToppings=arrayData.filter(arrayData => arrayData.category === "agregados")
 
                 console.log(arrayColdDrinks)
 
@@ -57,6 +64,9 @@ const DrinksMenu = () => {
                 setBurgerFood(arrayBurgerFoods)
                 setSandwichFood(arraySandwichFoods)
                 setDessertFood(arrayDessertFoods)
+                setSweetsFood(arraySweetFoods)
+
+                setToppings(arrayToppings)
             } catch (error) {
                 console.log(error)
             }
@@ -238,6 +248,44 @@ const DrinksMenu = () => {
                 <div className="containerbtnDrinks">
                     {
                         DessertFood.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
+            </div>
+            
+            <div className="containerTittle">
+                <hr className="hr"/>
+                <h3>Dulces</h3>
+                <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        SweetsFood.map(item => (
+                            <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
+                                <img src={item.img} alt="" className="imgDrinks"></img>
+                                <p className="textDrinks" key={item.nameproduct}>
+                                    {item.nameproduct}</p>
+                            </button>
+                        ))
+                    }            
+                </div>
+            </div>
+            <div className="containerTittle">
+            <a name="Agregados" id="Agregados"></a>
+                <hr className="hr"/>
+                <h3>Agregados</h3>
+                <hr className="hr"/>
+            </div>
+            <div className="containerProductDrinks">
+                <div className="containerbtnDrinks">
+                    {
+                        Toppings.map(item => (
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgDrinks"></img>
                                 <p className="textDrinks" key={item.nameproduct}>
