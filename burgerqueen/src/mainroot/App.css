@@ -44,7 +44,7 @@
     font-size: 24px;
 }
 
-#selectName{
+.selectName{
     position: fixed;
     font-family: 'Courgette', cursive;
     background: rgba(255, 225, 197, 0.9);
@@ -82,7 +82,7 @@
     width: 340px;    
 }
 
-#client{
+.client{
     position: fixed;
     font-family: 'Courgette', cursive;
     font-size: 20px;
@@ -94,7 +94,7 @@
     margin-left: -100px;
 }
 
-#inputClient{
+.inputClient{
     background: rgba(255, 225, 197, 0.9);
     border: 1px solid #6B3D2E;
     box-sizing: border-box;
@@ -115,7 +115,7 @@
     width: 100%;
     margin-top: 220px;
 }
-#tableButtons{
+.tableButtons{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;

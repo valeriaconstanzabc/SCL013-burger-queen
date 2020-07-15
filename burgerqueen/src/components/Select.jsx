@@ -7,7 +7,7 @@ const Select = (props) => {
 
     return (
         <Fragment>
-            <select id="selectName" onChange = {e => setName(e.target.value)} value={name}>
+            <select className="selectName" onChange = {e => setName(e.target.value)} value={name}>
                 {
                     name && (
                         props.history.push('/mesas')

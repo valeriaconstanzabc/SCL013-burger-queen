@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 const Menu = () => {
     return (
-        <div id="menuContainer">
-            <div id="buttonsContainer">
-                <div className="containerNewOrder">
+        <main id="menuContainer">
+            <section className="buttonsContainer">
+                <section className="containerNewOrder">
                     <Link to="/orden">
                         <button className="btnNewOrder">Nuevo Pedido</button>
                     </Link>
-                </div>
-                <div className="containerDeliverOrder">
+                </section>
+                <section className="containerDeliverOrder">
                     <button className="btnDeliverOrder">Pedidos a entregar</button>
-                </div>
-            </div>
+                </section>
+            </section>
             <div className="containerProducts">
             </div>
-        </div>
+        </main>
     )
 }
 
