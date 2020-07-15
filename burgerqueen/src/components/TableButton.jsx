@@ -12,11 +12,11 @@ const TableButton = (props) => {
 
   return (
     <main id="tableContainer">
-      <div id="clientTitle">
+      <section className="clientTitle">
         <h1>Seleccione mesa de cliente:</h1>
         {setTable}
-      </div>
-      <div id="tableButtons">
+      </section>
+      <section className="tableButtons">
           {
           tables.map(item => (
             //imprimo en pantalla los datos que tengo en firebase en esta caso los nombres de tareas//
@@ -32,13 +32,13 @@ const TableButton = (props) => {
             </button>
           ))
           }
-      </div>
+      </section>
 
-      <div id="client">
+      <section className="client">
         <label id="nameClient">Nombre de cliente:</label>
         <form onSubmit={editTable ? addNameClient : addNameClient}>
           <input
-            id="inputClient"
+            className="inputClient"
             type="text"
             placeholder="nombre cliente"
             onChange={e => setClient(e.target.value)}
@@ -48,7 +48,7 @@ const TableButton = (props) => {
           <button  className="btnGo" type="submit"><Link to="/orden">Ir a pedido</Link></button>
         
         </form>
-      </div>
+      </section>
     </main>
   );
 }

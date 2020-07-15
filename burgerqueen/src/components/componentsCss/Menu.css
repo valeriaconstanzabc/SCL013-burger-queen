@@ -14,7 +14,7 @@ a:link, a:visited, a:active {
     padding-top: 200px;
     padding-right: 150px;
 }
-#buttonsContainer{
+.buttonsContainer{
     display: flex;
     width: 350px;
 
