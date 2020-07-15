@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
 
 const Order = () => {
-    let {setObjectProduct, idTable, objectProduct, sum, date, newClient} = useContext(UserContext)
-    console.log(objectProduct)
+    let {name, setObjectProduct, idTable, objectProduct, sum, date, newClient} = useContext(UserContext)
 
+    console.log(name)
     const deleteProduct = async (id)  => {
         try {
         console.log(objectProduct)
@@ -14,7 +14,7 @@ const Order = () => {
             setObjectProduct(arrayFilter)
         }catch (error) {
             console.log(error)
-          }
+        }
           
         }
     return (

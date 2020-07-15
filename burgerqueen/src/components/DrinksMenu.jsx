@@ -6,8 +6,8 @@ import Order from './Order'
 
 const DrinksMenu = () => {
 
-    let { objectProduct, setObjectProduct, activateClickProduct, coldDrinks, teaDrinks, coffeDrinks, BurgerFood,
-        SandwichFood, DessertFood, SweetsFood, Toppings, sum, sumName, setSumName } = useContext(UserContext)
+    let { objectProduct, activateClickProduct, coldDrinks, teaDrinks, coffeDrinks, BurgerFood,
+        SandwichFood, DessertFood, SweetsFood, Toppings, sum, sumName} = useContext(UserContext)
 
 
     return (
@@ -29,10 +29,11 @@ const DrinksMenu = () => {
 
             <Order objectProduct={objectProduct} sum={sum} sumName={sumName} key={objectProduct} />
             <div className="containerTittle">
-                <a name="Bebestibles" id="Bebestibles"></a>
-                <hr className="hr" />
-                <h3>Bebidas frias</h3>
-                <hr className="hr" />
+                <a name="Bebestibles" id="Bebestibles">
+                    <hr className="hr" />
+                    <h3>Bebidas frias</h3>
+                    <hr className="hr" />
+                </a>
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -164,10 +165,11 @@ const DrinksMenu = () => {
                 </div>
             </div>
             <div className="containerTittle">
-                <a name="Agregados" id="Agregados"></a>
-                <hr className="hr" />
-                <h3>Agregados</h3>
-                <hr className="hr" />
+                <a name="Agregados" id="Agregados">
+                    <hr className="hr" />
+                    <h3>Agregados</h3>
+                    <hr className="hr" />
+                </a>
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">

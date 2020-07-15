@@ -18,12 +18,12 @@ const TableButton = (props) => {
       </section>
       <section className="tableButtons">
           {
-          tables.map(item => (
+          tables.map((item, index) => (
             //imprimo en pantalla los datos que tengo en firebase en esta caso los nombres de tareas//
             //item.id este es el id del elemento
             <button
               type="button"
-              key={item.id}
+              key={index}
               className="btnTable"
               onClick={() => activateEditTable(item)}>
               <p className="labelTable" key={item.id}>

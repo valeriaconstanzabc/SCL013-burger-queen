@@ -1,25 +1,25 @@
-import React, {Fragment} from 'react'
-import { withRouter } from 'react-router-dom'
+import React, { useContext, Fragment } from 'react'
+import { Link } from "react-router-dom";
+import {UserContext} from '../context/UserContext'
 
-const Select = (props) => {
+const Select = () => {
 
-    const [name, setName ] = React.useState('')
+    let {name, setName} = useContext(UserContext)
+    console.log(name)
 
     return (
         <Fragment>
-            <select className="selectName" onChange = {e => setName(e.target.value)} value={name}>
-                {
-                    name && (
-                        props.history.push('/mesas')
-                    )
-                }
+            <select className="selectName" onChange = {e => setName(e.target.value)}>
                 <option value="">Selecciona tu Nombre</option>
-                <option value="">Marta Sanchez</option>
-                <option value="">Juan Carlos Bodoque</option>
-                <option value="">Felipe Pérez</option>
+                <option value="Marta Sanchez">Marta Sanchez</option>
+                <option value="Juan Carlos Bodoque">Juan Carlos Bodoque</option>
+                <option value="Felipe Pérez">Felipe Pérez</option>
             </select>
+            <Link to="/mesas">
+                <button className="btnGetIn">Entrar</button>
+            </Link>
         </Fragment>
     )
 }
 
-export default withRouter(Select)
+export default Select

@@ -6,6 +6,7 @@ let { Provider, Consumer } = UserContext
 
 function UserProvider({ children }) {
 
+  const [name, setName ] = React.useState('')
   //<----------------TableButton & Order----------------------->
   const [tables, setTable] = React.useState([])
   const [client, setClient] = React.useState('')
@@ -214,7 +215,7 @@ function UserProvider({ children }) {
 
   return (
     <Provider value={{
-      newClient, date, tables, setTable, client, editTable, activateEditTable, addNameClient,
+      name, setName, newClient, date, tables, setTable, client, editTable, activateEditTable, addNameClient,
       setClient, idTable, objectProduct, setObjectProduct, activateClickProduct, 
       coldDrinks, teaDrinks, coffeDrinks, BurgerFood,SandwichFood, DessertFood,
       SweetsFood, Toppings, sum, sumName, setSumName 

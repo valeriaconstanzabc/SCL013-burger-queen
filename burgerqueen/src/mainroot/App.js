@@ -19,37 +19,42 @@ import Menu from '../components/Menu';
 
 import DrinksMenu from '../components/DrinksMenu';
 import {UserProvider} from '../context/UserContext'
-import Order from '../components/Order';
 
 //<----------------Función rutas------------------->
 const App = () => {
   return (
     <Router>
       <Switch>
+
         <Route path="/" exact>
           <Buttons/>
           <Welcome/>
         </Route>
+
         <Route path="/mesero">
-          <Buttons/>
-          <Welcome/>
-          <Select/>
-        </Route>
-        <Route path="/mesas">
           <UserProvider>
-          <Header />
-          <TableButton />
-          <Background />
+            <Welcome/>
+            <Select/>
           </UserProvider>
         </Route>
-          <Route path="/orden">
-            <UserProvider>
+
+        <Route path="/mesas">
+          <UserProvider>
+            <Header />
+            <TableButton />
+            <Background />
+          </UserProvider>
+        </Route>
+
+        <Route path="/orden">
+          <UserProvider>
             <Header/>
             <Menu/>
             <DrinksMenu />       
             <Background/>
-            </UserProvider>
-          </Route>
+          </UserProvider>
+        </Route>
+
       </Switch>
     </Router>
   );
