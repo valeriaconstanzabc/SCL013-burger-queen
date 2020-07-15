@@ -19,6 +19,7 @@ import Menu from '../components/Menu';
 
 import DrinksMenu from '../components/DrinksMenu';
 import {UserProvider} from '../context/UserContext'
+import Order from '../components/Order';
 
 //<----------------Función rutas------------------->
 const App = () => {

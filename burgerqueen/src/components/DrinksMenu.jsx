@@ -1,127 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 import '../components/componentsCss/DrinksMenu.css'
 import '../components/componentsCss/ButtonsMenu.css'
-import { firebase } from '../firebase/firebase'
 import Order from './Order'
 
 const DrinksMenu = () => {
 
-    const data = [
-        {nameProduct: ''},
-        {priceProduct: ''}
-    ]
+    let { objectProduct, setObjectProduct, activateClickProduct, coldDrinks, teaDrinks, coffeDrinks, BurgerFood,
+        SandwichFood, DessertFood, SweetsFood, Toppings, sum, sumName, setSumName } = useContext(UserContext)
 
-    const [products, setProducts] = React.useState([])
-    const [objectProduct, setObjectProduct] =React.useState(data)
-    //Drinks
-    const [coldDrinks, setColdDrinks] = React.useState([])
-    const [teaDrinks, setTeaDrinks] =React.useState([])
-    const [coffeDrinks, setCoffeDrinks] =React.useState([])
-    //Food
-    const [BurgerFood, setBurgerFood] = React.useState([])
-    const [SandwichFood, setSandwichFood]=React.useState([])
-    const [DessertFood, setDessertFood]=React.useState([])
-    const [SweetsFood, setSweetsFood]=React.useState([])
-    //Toppings
-    const[Toppings, setToppings]=React.useState([])
-
-    const [totalPrice, setTotalPrice] = React.useState([])
-    const [sum] = React.useState([])
-
-    const[sumName, setSumName] = React.useState([])
-
-
-    React.useEffect(() => {
-        // traigo la data desde firebase
-        const getProducts = async () => {
-            try {
-                const db = firebase.firestore()
-                //trae todos los documentos de mesas
-                const data = await db.collection('productos').get()
-                console.log(data.docs)
-                //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto
-                const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data()}))
-                console.log(arrayData)
-                const arrayColdDrinks = arrayData.filter(arrayData => arrayData.category === "bebidas frias")
-                const arrayTeaDrinks = arrayData.filter(arrayData => arrayData.category === "tes")
-                const arrayCoffeDrinks = arrayData.filter(arrayData => arrayData.category === "cafes")
-
-                const arrayBurgerFoods = arrayData.filter(arrayData => arrayData.category === "burger")
-                const arraySandwichFoods = arrayData.filter(arrayData => arrayData.category === "sandwich")
-                const arrayDessertFoods = arrayData.filter(arrayData => arrayData.category === "antojos")
-                const arraySweetFoods = arrayData.filter(arrayData => arrayData.category === "dulces")
-
-
-                const arrayToppings=arrayData.filter(arrayData => arrayData.category === "agregados")
-
-                console.log(arrayColdDrinks)
-
-                setProducts(arrayData)
-                setColdDrinks(arrayColdDrinks)
-                setTeaDrinks(arrayTeaDrinks)
-                setCoffeDrinks(arrayCoffeDrinks)
-
-                setBurgerFood(arrayBurgerFoods)
-                setSandwichFood(arraySandwichFoods)
-                setDessertFood(arrayDessertFoods)
-                setSweetsFood(arraySweetFoods)
-
-                setToppings(arrayToppings)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getProducts()
-    }, [])
-
-    const activateClickProduct = (item) => {
-
-        let objectProductt = {
-            nameProduct: item.nameproduct,
-            priceProduct: item.price
-        }
-
-        console.log(objectProductt)
-        console.log(products)
-
-        setObjectProduct([...objectProduct, objectProductt])
-
-        const productPrice = parseInt(item.price);
-
-        sum.push = totalPrice.reduce((price1, price2) => price1 + price2, item.price)
-        
-        totalPrice.push(productPrice)
-        setTotalPrice([...totalPrice])
-        console.log(sum)
-
-        const name = objectProduct.map(objt =>
-            objt.nameProduct
-        )
-        console.log(name)
-    
-        const price = objectProduct.map(objt =>
-            objt.priceProduct
-        )
-        console.log(price)
-
-
-        
-        const sumName= name.reduce((contadorName, name) => {
-        contadorName[name]= (contadorName[name] || 0) + 1
-        return contadorName
-        }, {})
-      
-
-    
-        console.log(sumName)
-    
-        const sumPrice= price.reduce((contadorPrice, price) => {
-            contadorPrice[price]= (contadorPrice[price] || 0) + 1
-            return contadorPrice
-            }, {})
-        
-            console.log(sumPrice)
-    }
 
     return (
         <div id="containerDrinks" key={objectProduct}>
@@ -131,7 +18,7 @@ const DrinksMenu = () => {
                 </a>
 
                 <a href="#Comestibles">
-                   <button className="btnFoodss">Comestibles</button>
+                    <button className="btnFoodss">Comestibles</button>
                 </a>
 
                 <a href="#Agregados">
@@ -140,12 +27,12 @@ const DrinksMenu = () => {
             </div>
 
 
-            <Order objectProduct={objectProduct} sum={sum} sumName ={sumName} key={objectProduct}/>
+            <Order objectProduct={objectProduct} sum={sum} sumName={sumName} key={objectProduct} />
             <div className="containerTittle">
                 <a name="Bebestibles" id="Bebestibles"></a>
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Bebidas frias</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -162,9 +49,9 @@ const DrinksMenu = () => {
             </div>
 
             <div className="containerTittle">
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Tés</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -176,14 +63,14 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
 
             <div className="containerTittle">
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Cafés</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -195,15 +82,15 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
 
             <div className="containerTittle">
                 <a name="Comestibles" id="Comestibles">
-                <hr className="hr"/>
-                <h3>Hamburguesas</h3>
-                <hr className="hr"/>
+                    <hr className="hr" />
+                    <h3>Hamburguesas</h3>
+                    <hr className="hr" />
                 </a>
             </div>
             <div className="containerProductDrinks">
@@ -221,9 +108,9 @@ const DrinksMenu = () => {
             </div>
 
             <div className="containerTittle">
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Sandwich</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -235,14 +122,14 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
 
             <div className="containerTittle">
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Antojos</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -254,14 +141,14 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
-            
+
             <div className="containerTittle">
-                <hr className="hr"/>
+                <hr className="hr" />
                 <h3>Dulces</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -273,14 +160,14 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
             <div className="containerTittle">
-            <a name="Agregados" id="Agregados"></a>
-                <hr className="hr"/>
+                <a name="Agregados" id="Agregados"></a>
+                <hr className="hr" />
                 <h3>Agregados</h3>
-                <hr className="hr"/>
+                <hr className="hr" />
             </div>
             <div className="containerProductDrinks">
                 <div className="containerbtnDrinks">
@@ -292,7 +179,7 @@ const DrinksMenu = () => {
                                     {item.nameproduct}</p>
                             </button>
                         ))
-                    }            
+                    }
                 </div>
             </div>
         </div>
