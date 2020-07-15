@@ -11,6 +11,9 @@ function UserProvider({ children }) {
   const [client, setClient] = React.useState('')
   const [editTable, setEditTable] = React.useState(false)
   const [idTable, setIdTable] = React.useState('')
+
+  const [date, setDate] = React.useState('')
+  const [newClient, setNewClient] = React.useState('')
   //<----------------TableButton----------------------->
   //<----------------DrinksMenu----------------------->
   const [products, setProducts] = React.useState([])
@@ -105,7 +108,7 @@ function UserProvider({ children }) {
     setEditTable(true)
     setClient('')
     setIdTable(item.id)
-
+    setDate(new Date().toLocaleString())
   }
   //<----------------TableButton----------------------->
 
@@ -127,16 +130,15 @@ function UserProvider({ children }) {
       })
 
       const arrayEdit = tables.map(item => (
-        item.id === idTable ? { name: item.name, nameClient: tables, fecha: Date.now() } : item
+        item.id === idTable ? { name: item.name, nameClient: tables, fecha: new Date().toLocaleString() } : item
       ))
+
 
       setTable(arrayEdit)
       setEditTable(false)
       setClient('')
-      /*setIdTable('')*/
-
-
-
+      setNewClient(client) 
+      
     } catch (error) {
       console.log(error)
     }
@@ -212,7 +214,7 @@ function UserProvider({ children }) {
 
   return (
     <Provider value={{
-      tables, setTable, client, editTable, activateEditTable, addNameClient,
+      newClient, date, tables, setTable, client, editTable, activateEditTable, addNameClient,
       setClient, idTable, objectProduct, setObjectProduct, activateClickProduct, 
       coldDrinks, teaDrinks, coffeDrinks, BurgerFood,SandwichFood, DessertFood,
       SweetsFood, Toppings, sum, sumName, setSumName 

@@ -1,4 +1,4 @@
-#containerOrder{
+.containerOrder{
     position: fixed;
     width: 400px;
     height: 390px;
@@ -15,16 +15,15 @@
     
 }
 
-#orderTitle{
+.orderTitle{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     padding: 0px 13px 0px 13px;
 }
 
-#orderTitle > h1{
+.containerTittleOrden{
     font-family: 'Courgette', cursive;
-    font-size: 30px;
+    font-size: 23px;
     line-height: 40px;
     display: flex;
     align-items: center;
@@ -32,18 +31,24 @@
     color: #000000;
 }
 
-#detailOrder{
-    
+.containerClientDateAndHour{
     display: flex;
-    width: 380px;
-    flex-direction: column;
-    
-}
-#scrollProduct{
-    overflow: scroll;
+    justify-content: space-between;
+    font-family: 'Arya', sans-serif;
 }
 
-#orderList{
+.totalOrder{
+    width: 380px;
+    flex-direction: column;
+}
+
+.scrollProduct{
+    overflow: scroll;
+    height: 225px;
+    width: 365px;
+}
+
+.orderList{
     display: flex;
     justify-content: space-between;
     font-family: 'Arya', sans-serif;
@@ -61,30 +66,40 @@
     
 }
 
-#orderTotal{
+.orderTotal{
     position: fixed;
     font-family: 'Arya', sans-serif;
-    width: 370px;
+    width: 365px;
     padding-right:13px;
-    padding-top: 290px;
+    margin-top: 0px;
 }
 
-#containerTotal{
+.btnDelete{
+    background: transparent;
+    outline: none;
+    display: flex;
+    border: 0;
+}
+.imgBtnDelete{
+    height: 30px;
+}
+
+.containerTotal{
     display: flex;
     justify-content: space-between;
 }
 
-#containerButtonsOrder {
+.containerButtonsOrder {
     position: fixed;
-    margin-top: 311px;
-    margin-left: 460px;
+    margin-top: 390px;
+    margin-left: -16px;
     height: 40px;
     width: 400px;
     display: flex;
     justify-content: space-between;
 }
 
-#containerButtonsOrder > #sendToKitchenButton{
+.containerButtonsOrder > .sendToKitchenButton{
     font-family: 'Courgette', cursive;
     background: #FFD157;
     border: 1px solid #6B3D2E;
@@ -97,7 +112,7 @@
     font-weight: bold;
 }
 
-#returnButton{
+.returnButton{
     font-family: 'Courgette', cursive;
     background: #DB2742;
     border: 1px solid #6B3D2E;

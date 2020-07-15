@@ -44,9 +44,8 @@ const TableButton = (props) => {
             onChange={e => setClient(e.target.value)}
             value={client}
           />
-          <button to="/orden" className="btnSend" type="submit">Enviar</button>
-          <br></br>
-          <Link to="/orden"  className="btnSend" type="submit">Ir a pedido</Link>
+          <button to="/orden" className="btnSend" type="submit">Guardar</button>
+          <button  className="btnGo" type="submit"><Link to="/orden">Ir a pedido</Link></button>
         
         </form>
       </div>
