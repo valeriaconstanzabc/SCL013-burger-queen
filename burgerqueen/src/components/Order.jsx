@@ -2,11 +2,22 @@ import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
 
-const Order = (props) => {
-    let {setClient, idTable} = useContext(UserContext)
-    console.log(idTable)
-    console.log(props.objectProduct)
+const Order = () => {
+    let {setObjectProduct, setClient, idTable, objectProduct, sum} = useContext(UserContext)
+    console.log(objectProduct)
 
+    const deleteProduct = async (id)  => {
+        console.log(objectProduct)
+        try {
+        console.log(objectProduct)
+        const arrayFilter = objectProduct.filter(item =>
+            item.id !== id)
+            setObjectProduct(arrayFilter)
+        }catch (error) {
+            console.log(error)
+          }
+          
+        }
     return (
         <div id="containerOrderandButtons">
             <div id="containerOrder">
@@ -28,11 +39,15 @@ const Order = (props) => {
                     
                     <Fragment>
                         {
-                            props.objectProduct.map(obj => (
-                                <ul key={obj.category} className="containerOrderProduct">
-                                    <h3>{obj.nameProduct}</h3>
-                                    <h3>{obj.priceProduct}</h3>
-                                </ul>
+                            objectProduct.map(item => (
+                                <div key={item.id} className="containerOrderProduct">
+                                    <h3>{item.nameProduct}</h3>
+                                    <h3>{item.priceProduct}</h3>
+                                    <button
+                                    onClick={() => deleteProduct(item)}
+                                    >X
+                                    </button>
+                                </div>
                             ))
                         }        
                     </Fragment>
@@ -41,7 +56,7 @@ const Order = (props) => {
                         <hr />
                         <div id="containerTotal">
                             <h3>Total:</h3>
-                            <h3>$ {[props.sum.push]}</h3> 
+                            <h3>$ {[sum.push]}</h3> 
                         </div>                       
                     </div>
                 </div>
