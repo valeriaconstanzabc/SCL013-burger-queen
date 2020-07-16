@@ -56,6 +56,13 @@ const App = () => {
           </UserProvider>
         </Route>
 
+        <Route path="/Entregas">
+        <UserProvider>
+            <Header/>              
+            <Background/>
+          </UserProvider>
+        </Route>
+
         <Route path="/cocina">
           <UserProvider>
             <Header/>         

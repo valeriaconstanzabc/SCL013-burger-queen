@@ -31,15 +31,20 @@ const Kitchen = () => {
  }, [])
 
  const activateOrderDeliver = (item) => {
-    setIdOrderDeliver(item.id)
-    console.log(idOrderDeliver)
+     console.log(item.id)
+     console.log(item.name)
+     setIdOrderDeliver(item.id)
  }
 
  const addOrderDeliver = () => {
+
     const db = firebase.firestore()
-    db.collection('Entregas').doc(idOrderDeliver).update({
-      order: newarray,
+    db.collection('Entregas').doc(idOrderDeliver).set({
+      order: newarray
     })
+    const arrayEdit = newarray.map(item => (
+        item.id === idOrderDeliver ? { name: item.name, nameCliente: item.nameClient } : item
+      ))
  }
 
     return (
@@ -76,13 +81,15 @@ const Kitchen = () => {
                         </div>
 
                         <section className="kitchenButton">
-                            <button key={item.id} className="kitchenReady" onClick = {() => activateOrderDeliver()}>
-                                Listo
+                            <button  className="kitchenReady" onClick = {() => activateOrderDeliver(item)}>
+                                <p key={item.id}>Listo</p>
                             </button>
                             <br/>
-                            <button key={item.id} className="kitchenReady" onClick = {() => addOrderDeliver()}>
+                            <Link to="/Entregas">
+                            <button type="submit" key={item.id} className="kitchenReady" onClick = {() => addOrderDeliver()}>
                                 Firebase
                             </button>
+                            </Link>
                         </section>
                     </section>
                 ))
