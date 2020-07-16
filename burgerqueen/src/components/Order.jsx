@@ -5,7 +5,7 @@ import { firebase } from '../firebase/firebase'
 
 const Order = () => {
     let { name, setObjectProduct, idTable, objectProduct, sum, date, newClient } = useContext(UserContext)
-     const [newarray, setNewArray] = useState([])
+   /*  const [newarray, setNewArray] = useState([])*/
 
 
     const addOrder = () => {
@@ -18,7 +18,7 @@ const Order = () => {
         })     
     }
 
-    const getUpate = () => {
+   /* const getUpate = () => {
         const db = firebase.firestore()
         db.collection('mesas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) =>{
         querySnapshot.forEach((doc) => {
@@ -30,7 +30,7 @@ const Order = () => {
 
  useEffect(() => {
     getUpate()
- }, [])
+ }, [])*/
 
 
     const deleteProduct = (id) => {
