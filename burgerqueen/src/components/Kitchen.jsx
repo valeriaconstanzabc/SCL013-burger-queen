@@ -9,17 +9,19 @@ import { firebase } from '../firebase/firebase'
 const Kitchen = () => {
     
     const [newarray, setNewArray] = useState([])
+
     const getUpate = () => {
         const db = firebase.firestore()
         db.collection('mesas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) =>{
         querySnapshot.forEach((doc) => {
-            console.log(doc.data())
-            setNewArray(doc.data())
+            console.log(doc.data().nameClient)
+            const nuevo = doc.data()
         })
         console.log(newarray)
     })
     
  }
+ 
  useEffect(() => {
     getUpate()
  }, [])

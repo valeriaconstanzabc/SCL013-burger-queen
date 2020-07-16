@@ -55,7 +55,8 @@ const App = () => {
             <Background/>
           </UserProvider>
         </Route>
-        <Route path="/kitchen">
+
+        <Route path="/cocina">
           <UserProvider>
             <Header/>         
             <Kitchen />       

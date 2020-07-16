@@ -96,7 +96,9 @@ const Order = () => {
                 <Link to="/mesas">
                     <button className="returnButton">Volver</button>
                 </Link>
-                <button className="sendToKitchenButton" onClick={() => addOrder()}>A la cocina</button>
+                <Link to="/cocina">
+                    <button className="sendToKitchenButton" onClick={() => addOrder()}>A la cocina</button>
+                </Link>
             </footer>
         </div>
     )
