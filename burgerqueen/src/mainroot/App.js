@@ -16,6 +16,7 @@ import Background from '../components/Background';
 import Header from '../components/Header';
 import TableButton from '../components/TableButton';
 import Menu from '../components/Menu';
+import Kitchen from '../components/Kitchen';
 
 import DrinksMenu from '../components/DrinksMenu';
 import {UserProvider} from '../context/UserContext'
@@ -51,6 +52,13 @@ const App = () => {
             <Header/>
             <Menu/>
             <DrinksMenu />       
+            <Background/>
+          </UserProvider>
+        </Route>
+        <Route path="/kitchen">
+          <UserProvider>
+            <Header/>         
+            <Kitchen />       
             <Background/>
           </UserProvider>
         </Route>
