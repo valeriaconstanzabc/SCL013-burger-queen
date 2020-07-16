@@ -55,34 +55,39 @@ const Kitchen = () => {
                         <div className="orderTitle">
                             <div className="containerTittleOrden">
                                 <div key={index}>
-                                    <p>{item.name}</p>
+                                    <p className="nameTable">{item.name}</p>
+                                    <button type="button" className="btnDeleteKitchen"
+                                    ><img className="imgBtnDeleteKitchen" src="http://imgfz.com/i/GBTyIih.png" alt="" />
+                                    </button>
                                 </div>        
                             </div>
 
                             <div className="containerClientDateAndHour">
                                 <div key={index}>
                                     <p className="dateAndHour">Fecha y hora: {item.fecha}</p>
-                                    <p className="dateAndHour">Mesero: {item.nameWaiter}</p>
-                                    <p className="dateAndHour">Client: {item.nameClient}</p>
+                                    <p className="dateWaiter">Mesero:
+                                     {item.nameWaiter}</p>
+                                    <p className="dateClient">Ciente: 
+                                    {item.nameClient}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="scrollProduct">
                             <div className="containerOrderProduct">
-                                <ul key={index}>
+                                <div className="divProduct" key={index}>
                                     {
                                     item.order.map(element => 
-                                        <p>{element}</p>
+                                        <p className="productOrder">{element}</p>
                                     )}
                                     
-                                </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <section className="kitchenButton">
+                        <div className="kitchenButton">
                             <button  className="kitchenReady" onClick = {() => activateOrderDeliver(item)}>
-                                <p key={item.id}>Listo</p>
+                                <p className="btnList" key={item.id}>Listo</p>
                             </button>
                             <br/>
                             <Link to="/Entregas">
@@ -90,7 +95,7 @@ const Kitchen = () => {
                                 Firebase
                             </button>
                             </Link>
-                        </section>
+                        </div>
                     </section>
                 ))
             }
