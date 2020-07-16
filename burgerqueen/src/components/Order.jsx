@@ -1,12 +1,27 @@
 import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
+import { firebase } from '../firebase/firebase'
 
 const Order = () => {
     let {name, setObjectProduct, idTable, objectProduct, sum, date, newClient} = useContext(UserContext)
 
     console.log(name)
-    const deleteProduct = async (id)  => {
+    const updateOrder = () =>{
+        const arrayMap =objectProduct.map(item=>(
+            item.nameProduct
+        ))
+        const db = firebase.firestore()
+        console.log(arrayMap)
+       db.collection('mesas').doc(idTable).update({
+           
+        order: arrayMap,
+        nameWaiter: name
+
+      })
+
+    }
+    const deleteProduct =  (id)  => {
         try {
         console.log(objectProduct)
             const arrayFilter = objectProduct.filter(item =>
@@ -70,7 +85,7 @@ const Order = () => {
                 <Link to="/mesas">
                     <button className="returnButton">Volver</button>
                 </Link>
-                <button className="sendToKitchenButton">A la cocina</button>
+                <button className="sendToKitchenButton" onClick={()=> updateOrder()}>A la cocina</button>
             </footer>
         </div>
     )
