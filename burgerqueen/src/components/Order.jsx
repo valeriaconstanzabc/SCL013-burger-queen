@@ -70,12 +70,19 @@ const Order = () => {
                         {
                             objectProduct.map(item => (
                                 <ul key={item.id} className="containerOrderProduct">
-                                    <h3>{item.nameProduct}</h3>
-                                    <h3>{item.priceProduct}</h3>
-                                    <button type="button" className="btnDelete"
-                                        onClick={() => deleteProduct(item.id)}
-                                    ><img className="imgBtnDelete" src="http://imgfz.com/i/p6lNuWL.png" alt="" />
-                                    </button>
+                                    <div className="containerAlineProduct">
+                                        <h3>{item.nameProduct}</h3>
+                                    </div>
+                                    <div className="containerAlinePrice">
+                                        <h3>{item.priceProduct}</h3>
+                                    </div>
+                                    <div className="containerAlinebtn">
+                                        <button type="button" className="btnDelete"
+                                            onClick={() => deleteProduct(item.id)}
+                                        ><img className="imgBtnDelete" src="http://imgfz.com/i/p6lNuWL.png" alt="" />
+                                        </button>
+                                    </div>
+
                                 </ul>
                             ))
                         }

@@ -52,18 +52,29 @@
     display: flex;
     justify-content: space-between;
     font-family: 'Arya', sans-serif;
-    padding: 0px 22px 0px 13px;
+    padding: 0px 83px 0px 13px;
     height: 30px;
     align-items: center;
-    
 }
 
 .containerOrderProduct{
     display: flex;
     justify-content: space-between;
     font-family: 'Arya', sans-serif;
-    padding: 0px 22px 0px 13px;
-    
+    padding: 0px 0px 0px 13px;
+}
+.containerAlineProduct{
+    width: 160px;
+}
+.containerAlinePrice{
+    width: 100px;
+    text-align: end;
+}
+.containerAlinebtn{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 50px;
 }
 
 .orderTotal{
@@ -87,6 +98,7 @@
 .containerTotal{
     display: flex;
     justify-content: space-between;
+    padding: 0px 70px 0px 13px;
 }
 
 .containerButtonsOrder {
@@ -99,7 +111,7 @@
     justify-content: space-between;
 }
 
-.containerButtonsOrder > .sendToKitchenButton{
+.sendToKitchenButton{
     font-family: 'Courgette', cursive;
     background: #FFD157;
     border: 1px solid #6B3D2E;

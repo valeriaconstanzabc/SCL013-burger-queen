@@ -36,7 +36,7 @@ const TableButton = (props) => {
 
       <section className="client">
         <label id="nameClient">Nombre de cliente:</label>
-        <form onSubmit={editTable ? addNameClient : addNameClient}>
+        <form>
           <input
             className="inputClient"
             type="text"
@@ -44,9 +44,7 @@ const TableButton = (props) => {
             onChange={e => setClient(e.target.value)}
             value={client}
           />
-          <button to="/orden" className="btnSend" type="submit">Guardar</button>
-          <button  className="btnGo" type="submit"><Link to="/orden">Ir a pedido</Link></button>
-        
+          <button to="/orden" className="btnSend" onClick={editTable ? addNameClient : addNameClient}><Link className="btnSendLink" to="/orden">Guardar</Link></button>
         </form>
       </section>
     </main>

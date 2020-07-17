@@ -103,7 +103,7 @@
     align-items: center;
     align-content: center;
     margin-top: 430px;
-    margin-left: -100px;
+    margin-left: -60px;
 }
 
 .inputClient{
@@ -159,7 +159,7 @@
     width: 230px;
     cursor: pointer;
 }
-.btnSend, .btnGo{
+.btnSend{
     position: fixed;
     font-family: 'Courgette', cursive;
     background: #FFD157;
@@ -173,9 +173,6 @@
     margin-left: 10px;
 }
 
-.btnGo{
-    width: 120px;
-    text-align: center;
-    height: 30px;
-    margin-left: 120px; 
+.btnSendLink{
+    color: rgba(0, 0, 0);
 }
