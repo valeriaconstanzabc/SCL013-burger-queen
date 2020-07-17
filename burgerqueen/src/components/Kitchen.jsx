@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-import {UserContext} from '../context/UserContext'
 import { firebase } from '../firebase/firebase'
 import '../components/componentsCss/Kitchen.css'
 
@@ -38,13 +37,19 @@ const Kitchen = () => {
 
  const addOrderDeliver = () => {
 
+    var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
     const db = firebase.firestore()
     db.collection('Entregas').doc(idOrderDeliver).set({
-      order: newarray
+      order: newarray[indexOrder]
     })
-    const arrayEdit = newarray.map(item => (
-        item.id === idOrderDeliver ? { name: item.name, nameCliente: item.nameClient } : item
-      ))
+   
+ }
+
+ 
+
+ const deleteOrder = (id) => {
+     console.log(id)
+
  }
 
     return (
@@ -56,7 +61,9 @@ const Kitchen = () => {
                             <div className="containerTittleOrden">
                                 <div key={index}>
                                     <p className="nameTable">{item.name}</p>
-                                    <button type="button" className="btnDeleteKitchen"
+                                    <button type="button" 
+                                    className="btnDeleteKitchen" 
+                                    onClick={()=>deleteOrder(item.id)}
                                     ><img className="imgBtnDeleteKitchen" src="http://imgfz.com/i/GBTyIih.png" alt="" />
                                     </button>
                                 </div>        
