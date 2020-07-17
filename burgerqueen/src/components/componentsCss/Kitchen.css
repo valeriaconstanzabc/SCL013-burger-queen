@@ -22,3 +22,89 @@
     padding: 15px;
     margin: 0px 10px 20px 10px;
 }
+
+.nameTable{
+    font-family: Courgette;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.btnDeleteKitchen{
+    background: transparent;
+    padding-left: 145px;
+    margin-top: -40px;
+    outline: none;
+    position: absolute;
+    border: 0;
+}
+
+.imgBtnDeleteKitchen{
+    height: 30px;
+}
+
+.dateAndHour{
+    margin-top: -10px;
+    font-family: Arya;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #000000;
+}
+
+.dateWaiter{
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+.dateClient{
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+.divProduct{
+    margin-top: 15px;
+}
+
+.productOrder{
+    margin-top: -30px;
+    font-family: Arya;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.btnList{
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 24px;
+    width: 200px;
+    height: 45px;
+    background: #6B3D2E;
+    border: 1px solid #DB2742;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    font-family: Courgette;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 45px;
+    align-items: center;
+    text-align: center;
+    color: #FDF4CB;
+    border: 1px solid #DB2742;
+
+}
