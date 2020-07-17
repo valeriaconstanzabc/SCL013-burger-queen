@@ -11,7 +11,9 @@ const Menu = () => {
                     </Link>
                 </section>
                 <section className="containerDeliverOrder">
-                    <button className="btnDeliverOrder">Pedidos a entregar</button>
+                    <Link to="/Entregas">
+                        <button className="btnDeliverOrder">Pedidos a entregar</button>
+                    </Link>
                 </section>
             </section>
             <div className="containerProducts">

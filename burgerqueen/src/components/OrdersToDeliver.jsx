@@ -10,7 +10,6 @@ const OrdersToDeliver = () => {
 
     const getUpDate = () => {
 
-        const db = firebase.firestore()
         const getEntregas = async() =>{
             const querySnapshot = await firebase.firestore().collection('Entregas').get()
             const docs = []
@@ -46,6 +45,15 @@ const OrdersToDeliver = () => {
         getUpDate()
     }, [])
 
+    const deleteOrder = (id) => {
+        const db = firebase.firestore()
+        console.log(id)
+        db.collection('Entregas').doc(id).delete().then(() => (
+            console.log("Eliminado")
+        ))   
+
+    }
+
     return (
         <main className="menuContainerDeliver">
             <section className="buttonsContainer">
@@ -66,7 +74,7 @@ const OrdersToDeliver = () => {
             
             {
                     arrayOrderDeliver.map((item, index) => (
-                        <section className="orderKitchen">
+                        <section key={index} className="orderDeliver">
                             <div className="orderTitle">
                                 <div className="containerTittleOrden">
                                     <div key={index}>
@@ -76,7 +84,7 @@ const OrdersToDeliver = () => {
 
                                 <div className="containerClientDateAndHour">
                                     <div key={index}>
-                                        <p className="dateAndHour">Fecha y hora: {item.fecha}</p>
+                                        <p className="dateAndHour">Fecha: {item.fecha}</p>
                                         <p className="dateWaiter">Mesero:
                                         {item.nameWaiter}</p>
                                         <p className="dateClient">Ciente: 
@@ -88,19 +96,16 @@ const OrdersToDeliver = () => {
                             <div className="scrollProduct">
                                 <div className="containerOrderProduct">
                                     <div className="divProduct">
-                                        {
-                                        item.order.map(element => 
-                                            <p className="productOrder">{element}</p>
-                                        )}
+
+                                            <p className="productOrder">{item.orderProduct}</p>
+
                                         
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="kitchenButton">
-                                <button  className="kitchenReady">
-                                    <p className="btnList">Entregado</p>
-                                </button>
+                            <div className="deliverButton">
+                                <button  className="deliverReady" onClick={()=> deleteOrder()}>Entregado</button>
                             </div>
                         </section>
                     ))

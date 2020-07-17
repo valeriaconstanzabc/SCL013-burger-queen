@@ -4,8 +4,6 @@ import { firebase } from '../firebase/firebase'
 import '../components/componentsCss/Kitchen.css'
 
 
-
-
 const Kitchen = () => {
     
     const [newarray, setNewArray] = useState([])
@@ -62,9 +60,14 @@ const Kitchen = () => {
 
     return (
         <main className="kitcherContainer">
+            <section className="btnKitchenReturn">
+                <Link to="/mesas">
+                    <button className="returnButton">Volver</button>
+                </Link>
+            </section>
             {
                 newarray.map((item, index) => (
-                    <section className="orderKitchen">
+                    <section key={index} className="orderKitchen">
                         <div className="orderTitle">
                             <div className="containerTittleOrden">
                                 <div key={index}>
@@ -92,8 +95,8 @@ const Kitchen = () => {
                             <div className="containerOrderProduct">
                                 <div className="divProduct" key={index}>
                                     {
-                                    item.order.map(element => 
-                                        <p className="productOrder">{element}</p>
+                                    item.order.map((element, index) => 
+                                        <p key={index} className="productOrder">{element}</p>
                                     )}
                                     
                                 </div>
@@ -102,12 +105,11 @@ const Kitchen = () => {
 
                         <div className="kitchenButton">
                             <button  className="kitchenReady">
-                                <p className="btnList" key={item.id}>Listo</p>
+                                <p className="btnList" key={item.id} onClick = {() => activateOrderDeliver(item)}><img className="btnKitchenReady" src="http://imgfz.com/i/OaD2yhx.png" alt=""/></p>
                             </button>
-                            <br/>
                             
-                            <button type="submit" key={item.id} className="kitchenReady" onClick = {() => addOrderDeliver()}>
-                                Firebase
+                            <button type="submit" key={item.id} className="btnListo" onClick = {() => addOrderDeliver()}>
+                                Despachar
                             </button>
                             
                         </div>

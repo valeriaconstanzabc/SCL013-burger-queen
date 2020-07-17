@@ -13,4 +13,40 @@
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
     border-radius: 0px 15px 15px 15px;
     overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.orderDeliver{
+    width: 260px;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    background: #FFE1C5;
+    border: 1px solid #DB2742;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 30px 10px 20px 10px;
+}
+.deliverButton{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+}
+.deliverReady{
+    width: 200px;
+    height: 45px;
+    border-radius: 15px;
+    font-family: 'Courgette';
+    font-size: 30px;
+    background: #FFD157;
+    border: 1px solid #6B3D2E;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #6B3D2E;
+    border: 1px solid #DB2742;
 }
