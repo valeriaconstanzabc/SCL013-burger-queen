@@ -42,13 +42,23 @@ const Kitchen = () => {
     db.collection('Entregas').doc(idOrderDeliver).set({
       order: newarray[indexOrder]
     })
-   
- }
+    db.collection('mesas').doc(idOrderDeliver).update({
+        fecha: '',
+        nameClient: '',
+        nameWaiter: '',
+        order: [],
+ })
+}
 
  
-
  const deleteOrder = (id) => {
-     console.log(id)
+    const db = firebase.firestore()
+    db.collection('mesas').doc(id).update({
+        fecha: '',
+        nameClient: '',
+        nameWaiter: '',
+        order: [],
+ })
 
  }
 
