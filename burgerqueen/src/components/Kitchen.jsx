@@ -11,6 +11,7 @@ const Kitchen = () => {
     
     const [newarray, setNewArray] = useState([])
     const [idOrderDeliver, setIdOrderDeliver] = useState('')
+    const [lala, setLala] = useState([])
 
     const getUpate = () => {
         const db = firebase.firestore()
@@ -31,12 +32,21 @@ const Kitchen = () => {
  }, [])
 
  const activateOrderDeliver = (item) => {
-     console.log(item.id)
+    for(let i=0; i< newarray.length; i++){
+        if(newarray[i].name === item.name){
+            console.log('Logradoo')
+            setLala(newarray[i])
+        }
+        
+        
+     }
+     console.log(lala)
      console.log(item.name)
      setIdOrderDeliver(item.id)
  }
 
  const addOrderDeliver = () => {
+    
 
     const db = firebase.firestore()
     db.collection('Entregas').doc(idOrderDeliver).set({
@@ -45,6 +55,7 @@ const Kitchen = () => {
     const arrayEdit = newarray.map(item => (
         item.id === idOrderDeliver ? { name: item.name, nameCliente: item.nameClient } : item
       ))
+    
  }
 
     return (
