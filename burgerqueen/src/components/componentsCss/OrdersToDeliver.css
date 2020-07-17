@@ -1,0 +1,16 @@
+.menuContainerDeliver{
+    position: fixed;
+    margin-top: -700px;
+    margin-left: 80px;
+}
+
+.containerProductsDeliver{
+    background: rgba(255, 195, 125, 0.85);
+    height: 455px;
+    width: 870px;
+    border: 1px solid #6B3D2E;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 0px 15px 15px 15px;
+    overflow: scroll;
+}

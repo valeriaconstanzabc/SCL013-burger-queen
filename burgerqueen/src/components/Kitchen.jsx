@@ -23,7 +23,6 @@ const Kitchen = () => {
         console.log(docs)
         setNewArray(docs)
     })
-    
  }
  useEffect(() => {
     getUpate()
@@ -36,7 +35,6 @@ const Kitchen = () => {
  }
 
  const addOrderDeliver = () => {
-
     var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
     const db = firebase.firestore()
     db.collection('Entregas').doc(idOrderDeliver).set({
@@ -73,7 +71,7 @@ const Kitchen = () => {
                                     <p className="nameTable">{item.name}</p>
                                     <button type="button" 
                                     className="btnDeleteKitchen" 
-                                    onClick={()=>deleteOrder(item.id)}
+                                    onClick={()=> deleteOrder(item.id)}
                                     ><img className="imgBtnDeleteKitchen" src="http://imgfz.com/i/GBTyIih.png" alt="" />
                                     </button>
                                 </div>        
@@ -103,15 +101,15 @@ const Kitchen = () => {
                         </div>
 
                         <div className="kitchenButton">
-                            <button  className="kitchenReady" onClick = {() => activateOrderDeliver(item)}>
+                            <button  className="kitchenReady">
                                 <p className="btnList" key={item.id}>Listo</p>
                             </button>
                             <br/>
-                            <Link to="/Entregas">
+                            
                             <button type="submit" key={item.id} className="kitchenReady" onClick = {() => addOrderDeliver()}>
                                 Firebase
                             </button>
-                            </Link>
+                            
                         </div>
                     </section>
                 ))

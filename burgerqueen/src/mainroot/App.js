@@ -17,6 +17,7 @@ import Header from '../components/Header';
 import TableButton from '../components/TableButton';
 import Menu from '../components/Menu';
 import Kitchen from '../components/Kitchen';
+import OrdersToDeliver from '../components/OrdersToDeliver';
 
 import DrinksMenu from '../components/DrinksMenu';
 import {UserProvider} from '../context/UserContext'
@@ -56,16 +57,17 @@ const App = () => {
           </UserProvider>
         </Route>
 
-        <Route path="/Entregas">
-        <UserProvider>
-            <Header/>              
+        <Route path="/entregas">
+          <UserProvider>
+            <Header/>           
             <Background/>
+            <OrdersToDeliver />  
           </UserProvider>
         </Route>
 
         <Route path="/cocina">
           <UserProvider>
-            <Header/>         
+            <Header/>        
             <Kitchen />       
             <Background/>
           </UserProvider>
