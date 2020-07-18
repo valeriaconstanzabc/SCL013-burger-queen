@@ -50,3 +50,16 @@
     color: #6B3D2E;
     border: 1px solid #DB2742;
 }
+
+@media all and (min-width: 1440px){
+    .menuContainerDeliver{
+        margin-left: 220px;
+    }
+    .containerProductsDeliver{
+        height: 400px;
+        width: 1055px;
+    }
+    .orderDeliver{
+        margin: 30px 30px 20px 30px;
+    }
+}
