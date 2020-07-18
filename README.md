@@ -8,7 +8,7 @@ Finalmente, la boleta se despachará  a la cocina con el botón ***"enviar"*,** 
 
 ![imagen burger queen](http://imgfz.com/i/gKFHiM2.png)
 
-Conoce BurgerQueen haciendo click [aquí](https://github.com/valeriaconstanzabc/SCL013-burger-queen)
+Conoce BurgerQueen haciendo click [aquí](https://burger-queen-2bad6.web.app/)
 
 # Índice
 
@@ -142,7 +142,7 @@ Para visitar el detalle de los resultados de los testeos de usabilidad haz click
 ## 6. Planificación
 Realizamos  nuestra planificación mediante la página ***miro***, semana a semana, poniéndonos metas por día y para garantizar una buena organización del proyecto.
 
-**FALTA FOTO DE MIRO CON LA PLANIFICACIÓN**
+[!Planificacion](http://imgfz.com/i/hZ5Nb3G.png)
 
 ## 7. Objetivos de aprendizaje
 
@@ -163,8 +163,8 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 * [x] Uso ES modules (`import`| `export`)
 * [ ] Diferenciar entre expression y statements.
 * [ ] Diferenciar entre tipos de datos atómicos y estructurados.
-* [ ] Uso de callbacks.
-* [ ] Consumo de Promesas.
+* [x] Uso de callbacks.
+* [x] Consumo de Promesas.
 
 ### Testing
 * [ ] Testeo unitario.
@@ -184,7 +184,7 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 * [x] Firestore.
 * [ ] Firebase Auth.
 * [ ] Firebase security rules.
-* [ ] Observadores. (`OnAuthStateChanged`| `onSnapshot`)
+* [x] Observadores. (`OnAuthStateChanged`| `onSnapshot`)
 
 
 ### React
