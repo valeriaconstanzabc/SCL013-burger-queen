@@ -4,36 +4,19 @@ import { UserContext } from '../context/UserContext'
 import { firebase } from '../firebase/firebase'
 
 const Order = () => {
+    
     let { name, setObjectProduct, idTable, objectProduct, sum, date, newClient } = useContext(UserContext)
-   /*  const [newarray, setNewArray] = useState([])*/
-
 
     const addOrder = () => {
         const arrayMap = objectProduct.map(item => (
             item.nameProduct
-            
         ))
+
         firebase.firestore().collection('mesas').doc(idTable).update({
             order: arrayMap,
             nameWaiter: name         
-        })     
-        console.log(arrayMap)
-    }
-
-   /* const getUpate = () => {
-        const db = firebase.firestore()
-        db.collection('mesas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) =>{
-        querySnapshot.forEach((doc) => {
-            console.log(doc.data())
-            setNewArray(doc.data())
         })
-    })
- }
-
- useEffect(() => {
-    getUpate()
- }, [])*/
-
+    }
 
     const deleteProduct = (id) => {
         try {
@@ -89,6 +72,7 @@ const Order = () => {
                             ))
                         }
                     </Fragment>
+                    
                 </div>
 
                 <section className="orderTotal">
