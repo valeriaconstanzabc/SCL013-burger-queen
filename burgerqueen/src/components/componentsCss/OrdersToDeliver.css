@@ -51,6 +51,12 @@
     border: 1px solid #DB2742;
 }
 
+.btnListoDeliver{
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
 @media all and (min-width: 1440px){
     .menuContainerDeliver{
         margin-left: 220px;
