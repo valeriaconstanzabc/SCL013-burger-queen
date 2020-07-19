@@ -9,43 +9,31 @@ const OrdersToDeliver = () => {
     const [arrayOrderDeliver, setArrayOrderDeliver] = useState([])
     const [idArrayOrderDeliver, setArrayIdOrderDeliver] = useState('')
 
-
-    console.log('AQUII')
     const getDeliver = () => {
         const db = firebase.firestore()
+
         db.collection('Entregas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
             const docs = []
             querySnapshot.forEach((doc) => {
-                console.log(doc.data())
-                console.log(doc.id)
                 docs.push({ ...doc.data(), id: doc.id })
             })
-            console.log(docs)
-            setArrayOrderDeliver(docs)
 
+            setArrayOrderDeliver(docs)
         })
     }
-
-
-
 
     useEffect(() => {
         getDeliver()
     }, [])
 
     const activateArrayOrderDeliver = (item) => {
-        console.log(item.id)
-        console.log(item.name)
         setArrayIdOrderDeliver(item.id)
-
     }
 
     const deleteOrderDelivery = (id) => {
-        console.log(arrayOrderDeliver)
-        var indexOrderDelivery = arrayOrderDeliver.map(item => item.id).indexOf(idArrayOrderDeliver)
-        console.log(indexOrderDelivery)
+        let indexOrderDelivery = arrayOrderDeliver.map(item => item.id).indexOf(idArrayOrderDeliver)
+
         const db = firebase.firestore()
-        console.log(arrayOrderDeliver[indexOrderDelivery])
         db.collection('Entregas').doc(idArrayOrderDeliver).update({
             fecha: '',
             id: '',
@@ -55,7 +43,6 @@ const OrdersToDeliver = () => {
             order: []
         })
     }
-
 
 
     return (
@@ -76,19 +63,18 @@ const OrdersToDeliver = () => {
 
             <div className="containerProductsDeliver">
 
-
                 {
                     arrayOrderDeliver.map((item, index) => (
                         <section key={index} className="orderDeliver">
                             <div className="orderTitle">
                                 <div className="containerTittleOrden">
-                                    <div key={index}>
+                                    <div>
                                         <p className="nameTable">{item.id}</p>
                                     </div>
                                 </div>
 
                                 <div className="containerClientDateAndHour">
-                                    <div key={index}>
+                                    <div>
                                         <p className="dateAndHour">Fecha: {item.fecha}</p>
                                         <p className="dateWaiter">Mesero:
                                         {item.nameWaiter}</p>
@@ -101,8 +87,8 @@ const OrdersToDeliver = () => {
                             <div className="scrollProduct">
                                 <div className="containerOrderProduct">
                                     <div className="divProduct">
-                                        {item.order.map(ele =>
-                                            <p key={index} className="productOrder">{ele}</p>)}
+                                        {item.order.map((ele, a) =>
+                                            <p key={a} className="productOrder">{ele}</p>)}
 
 
                                     </div>

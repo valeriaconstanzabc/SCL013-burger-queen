@@ -5,8 +5,7 @@ import mesa from '../img/mesa.png'
 import { withRouter } from 'react-router-dom'
 
 
-
-const TableButton = (props) => {
+const TableButton = () => {
 
   let {tables,client,editTable,activateEditTable,addNameClient,setClient,setTable} = useContext(UserContext)
 
@@ -16,21 +15,21 @@ const TableButton = (props) => {
         <h1>Seleccione mesa de cliente:</h1>
         {setTable}
       </section>
+
       <section className="tableButtons">
           {
-          tables.map((item, index) => (
-            //imprimo en pantalla los datos que tengo en firebase en esta caso los nombres de tareas//
-            //item.id este es el id del elemento
-            <button
-              type="button"
-              key={index}
-              className="btnTable"
-              onClick={() => activateEditTable(item)}>
-              <p className="labelTable" key={item.id}>
-                {item.name}</p>
+            tables.map((item, index) => (
+              //imprimo en pantalla los datos que tengo en firebase en esta caso los nombres de tareas//
+              //item.id este es el id del elemento
+              <button
+                type="button"
+                key={index}
+                className="btnTable"
+                onClick={() => activateEditTable(item)}>
+                <p className="labelTable" key={item.id}>{item.name}</p>
                 <img src={mesa} alt="mesa" className="imgTable"></img>
-            </button>
-          ))
+              </button>
+            ))
           }
       </section>
 

@@ -12,7 +12,6 @@
     margin-left: 460px;
     margin-top: -95px;
     padding: 15px;
-    
 }
 
 .orderTitle{
@@ -136,6 +135,8 @@
     height: 50px;
     font-weight: bold;
 }
+
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     .containerOrder{
         width: 430px;

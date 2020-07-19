@@ -14,60 +14,55 @@ const Kitchen = () => {
         db.collection('mesas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) =>{
             const docs = []
             querySnapshot.forEach((doc) => {
-            docs.push({...doc.data(), id:doc.id})
-            console.log(doc.data())
-            console.log(doc.id)
+                docs.push({...doc.data(), id:doc.id})
+            })
+
+            setNewArray(docs)
         })
-        console.log(docs)
-        setNewArray(docs)
-    })
- }
- useEffect(() => {
-    getUpate()
- }, [])
+    }
+    useEffect(() => {
+        getUpate()
+    }, [])
 
- const activateOrderDeliver = (item) => {
-     console.log(item.id)
-     console.log(item.name)
-     setIdOrderDeliver(item.id)
- }
+    const activateOrderDeliver = (item) => {
+        setIdOrderDeliver(item.id)
+    }
 
- const addOrderDeliver = () => {
-    var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
-    const db = firebase.firestore()
-    db.collection('Entregas').doc(idOrderDeliver).update({
-      fecha: newarray[indexOrder].fecha,
-      id: newarray[indexOrder].id,
-      name: newarray[indexOrder].name,
-      nameClient: newarray[indexOrder].nameClient,
-      nameWaiter: newarray[indexOrder].nameWaiter,
-      order: newarray[indexOrder].order
-    })
-    console.log(newarray[indexOrder])
-    db.collection('mesas').doc(idOrderDeliver).update({
-        fecha: '',
-        nameClient: '',
-        nameWaiter: '',
-        order: [],
- })
-}
+    const addOrderDeliver = () => {
+        var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
+        const db = firebase.firestore()
 
+        db.collection('Entregas').doc(idOrderDeliver).update({
+            fecha: newarray[indexOrder].fecha,
+            id: newarray[indexOrder].id,
+            name: newarray[indexOrder].name,
+            nameClient: newarray[indexOrder].nameClient,
+            nameWaiter: newarray[indexOrder].nameWaiter,
+            order: newarray[indexOrder].order
+        })
+
+        db.collection('mesas').doc(idOrderDeliver).update({
+            fecha: '',
+            nameClient: '',
+            nameWaiter: '',
+            order: [],
+        })
+    }
  
- const deleteOrder = (id) => {
-    const db = firebase.firestore()
-    db.collection('mesas').doc(id).update({
-        fecha: '',
-        nameClient: '',
-        nameWaiter: '',
-        order: [],
- })
-
- }
+    const deleteOrder = (id) => {
+        const db = firebase.firestore()
+        db.collection('mesas').doc(id).update({
+            fecha: '',
+            nameClient: '',
+            nameWaiter: '',
+            order: [],
+        })
+    }
 
     return (
         <main className="kitcherContainer">
             <section className="btnKitchenReturn">
-                <Link to="/orden">
+                <Link to="/mesas">
                     <button className="returnButton">Volver</button>
                 </Link>
             </section>

@@ -10,18 +10,17 @@ const Menu = () => {
                         <button className="btnNewOrder">Nuevo Pedido</button>
                     </Link>
                 </section>
+
                 <section className="containerDeliverOrder">
                     <Link to="/Entregas">
                         <button className="btnDeliverOrder">Pedidos a entregar</button>
                     </Link>
                 </section>
             </section>
-            <div className="containerProducts">
-            </div>
+
+            <div className="containerProducts"></div>
         </main>
     )
 }
-
-
 
 export default Menu

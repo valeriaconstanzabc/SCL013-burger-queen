@@ -23,6 +23,7 @@
     outline: none;
 }
 
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     #containerbtnFoods{
         width: 500px;

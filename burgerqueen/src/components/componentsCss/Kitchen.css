@@ -13,7 +13,7 @@
 .btnKitchenReturn{
     width: 900px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     padding-bottom: 35px;
     padding-left: 20px;
 }
@@ -95,7 +95,6 @@
     color: #000000;
 }
 
-
 .btnListo{
     position: absolute;
     margin-left: 24px;
@@ -114,7 +113,6 @@
     text-align: center;
     color: #FDF4CB;
     border: 1px solid #DB2742;
-
 }
 .kitchenReady{
     background: transparent;
@@ -125,6 +123,7 @@
     height: 50px;
 }
 
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     .kitcherContainer{
         height: 480px;

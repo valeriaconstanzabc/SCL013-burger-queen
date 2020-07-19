@@ -57,6 +57,7 @@
     outline: none;
 }
 
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     .menuContainerDeliver{
         margin-left: 220px;

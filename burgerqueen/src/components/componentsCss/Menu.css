@@ -55,6 +55,7 @@ a:link, a:visited, a:active {
     border-radius: 0px 15px 15px 15px;
 }
 
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     #menuContainer{
         width: 200px;

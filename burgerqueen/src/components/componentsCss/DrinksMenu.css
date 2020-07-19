@@ -66,6 +66,7 @@
                         height: 95px; 
                     }
 
+/*<-----------------------MEDIA QUERY----------------------->*/
 @media all and (min-width: 1440px){
     #containerDrinks{
         height: 295px;
