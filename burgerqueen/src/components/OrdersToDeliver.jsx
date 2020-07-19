@@ -7,52 +7,56 @@ import '../components/componentsCss/Kitchen.css'
 const OrdersToDeliver = () => {
 
     const [arrayOrderDeliver, setArrayOrderDeliver] = useState([])
+    const [idArrayOrderDeliver, setArrayIdOrderDeliver] = useState('')
 
-    const getUpDate = () => {
 
-        const getEntregas = async() =>{
-            const querySnapshot = await firebase.firestore().collection('Entregas').get()
+    console.log('AQUII')
+    const getDeliver = () => {
+        const db = firebase.firestore()
+        db.collection('Entregas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
             const docs = []
-            querySnapshot.forEach(doc => {
-                docs.push({...doc.data(), id:doc.id})
-                console.log(docs)
+            querySnapshot.forEach((doc) => {
+                console.log(doc.data())
+                console.log(doc.id)
+                docs.push({ ...doc.data(), id: doc.id })
             })
-            const docsArray = docs.map(item => (
-                item.order
-            ))
-            console.log(docsArray)
-            setArrayOrderDeliver(docsArray)
-            
-        }
-    getEntregas()
+            console.log(docs)
+            setArrayOrderDeliver(docs)
 
-
-        // const querySnapshot = db.collection('Entregas').onSnapshot((querySnapshot) =>{
-        //     const docs = []
-        //     querySnapshot.forEach((doc) => {
-        //         console.log(doc.data())
-        //         console.log(doc.id)
-        //         console.log(arrayOrderDeliver)
-             
-        //     })
-        //     console.log(docs)
-        //     setArrayOrderDeliver(docs)
-        // })
-        
+        })
     }
+
+
+
 
     useEffect(() => {
-        getUpDate()
+        getDeliver()
     }, [])
 
-    const deleteOrder = (id) => {
-        const db = firebase.firestore()
-        console.log(id)
-        db.collection('Entregas').doc(id).delete().then(() => (
-            console.log("Eliminado")
-        ))   
+    const activateArrayOrderDeliver = (item) => {
+        console.log(item.id)
+        console.log(item.name)
+        setArrayIdOrderDeliver(item.id)
 
     }
+
+    const deleteOrderDelivery = (id) => {
+        console.log(arrayOrderDeliver)
+        var indexOrderDelivery = arrayOrderDeliver.map(item => item.id).indexOf(idArrayOrderDeliver)
+        console.log(indexOrderDelivery)
+        const db = firebase.firestore()
+        console.log(arrayOrderDeliver[indexOrderDelivery])
+        db.collection('Entregas').doc(idArrayOrderDeliver).update({
+            fecha: '',
+            id: '',
+            name: '',
+            nameClient: '',
+            nameWaiter: '',
+            order: []
+        })
+    }
+
+
 
     return (
         <main className="menuContainerDeliver">
@@ -64,22 +68,23 @@ const OrdersToDeliver = () => {
                 </section>
 
                 <section className="containerDeliverOrder">
-                <Link to="/entregas">
-                    <button className="btnDeliverOrder">Pedidos a entregar</button>
-                </Link>
+                    <Link to="/entregas">
+                        <button className="btnDeliverOrder">Pedidos a entregar</button>
+                    </Link>
                 </section>
             </section>
+
             <div className="containerProductsDeliver">
-            
-            
-            {
+
+
+                {
                     arrayOrderDeliver.map((item, index) => (
                         <section key={index} className="orderDeliver">
                             <div className="orderTitle">
                                 <div className="containerTittleOrden">
                                     <div key={index}>
-                                        <p className="nameTable">{item.name}</p>
-                                    </div>        
+                                        <p className="nameTable">{item.id}</p>
+                                    </div>
                                 </div>
 
                                 <div className="containerClientDateAndHour">
@@ -87,7 +92,7 @@ const OrdersToDeliver = () => {
                                         <p className="dateAndHour">Fecha: {item.fecha}</p>
                                         <p className="dateWaiter">Mesero:
                                         {item.nameWaiter}</p>
-                                        <p className="dateClient">Ciente: 
+                                        <p className="dateClient">Ciente:
                                         {item.nameClient}</p>
                                     </div>
                                 </div>
@@ -96,21 +101,25 @@ const OrdersToDeliver = () => {
                             <div className="scrollProduct">
                                 <div className="containerOrderProduct">
                                     <div className="divProduct">
+                                        {item.order.map(ele =>
+                                            <p key={index} className="productOrder">{ele}</p>)}
 
-                                            <p className="productOrder">{item.orderProduct}</p>
 
-                                        
                                     </div>
                                 </div>
                             </div>
 
                             <div className="deliverButton">
-                                <button  className="deliverReady" onClick={()=> deleteOrder()}>Entregado</button>
+                                <button className="deliverReady" onClick={() => activateArrayOrderDeliver(item)}>Entregado</button>
+                                <button type="submit" key={item.id} className="btnListoDeliver" onClick={() => deleteOrderDelivery()}>
+                                    <img className="btnKitchenReady" src="http://imgfz.com/i/OaD2yhx.png" alt="" />
+                                </button>
                             </div>
                         </section>
                     ))
                 }
-                </div>
+            </div>
+
         </main>
     )
 }
