@@ -22,3 +22,14 @@
     background: rgba(0, 0, 0, 0.5);
     outline: none;
 }
+
+@media all and (min-width: 1440px){
+    #containerbtnFoods{
+        width: 500px;
+        justify-content: space-between;
+    }
+    .btnFoodss{
+        width: 150px;
+        font-size: 20px;
+    }
+}

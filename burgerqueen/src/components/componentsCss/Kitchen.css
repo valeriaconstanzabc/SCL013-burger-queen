@@ -4,6 +4,7 @@
     justify-content: center;
     position: fixed;
     margin-top: 200px;
+    margin-left: 20px;
     width: 100%;
     height: 480px;
     overflow: scroll;
@@ -122,4 +123,16 @@
 }
 .btnKitchenReady{
     height: 50px;
+}
+
+@media all and (min-width: 1440px){
+    .kitcherContainer{
+        height: 480px;
+        width: 1350px;
+        margin-left: 50px;
+    }
+    .btnKitchenReturn{
+        width: 100%;
+        padding-left: 85px;
+    }
 }

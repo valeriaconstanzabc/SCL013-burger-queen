@@ -136,3 +136,27 @@
     height: 50px;
     font-weight: bold;
 }
+@media all and (min-width: 1440px){
+    .containerOrder{
+        width: 430px;
+        height: 330px;
+        margin-left: 600px;
+    }
+    .scrollProduct{
+        height: 170px;
+        width: 400px;
+    }
+    .orderList{
+        width: 300px;
+    }
+    .totalOrder{
+        width: 400px;
+    }
+    .containerTotal{
+        padding: 0px 53px 0px 13px;
+    }
+    .containerButtonsOrder {
+        margin-top: 333px;
+        width: 432px;
+    }
+}

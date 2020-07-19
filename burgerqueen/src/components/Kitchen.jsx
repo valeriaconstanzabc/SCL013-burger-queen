@@ -35,9 +35,15 @@ const Kitchen = () => {
  const addOrderDeliver = () => {
     var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
     const db = firebase.firestore()
-    db.collection('Entregas').doc(idOrderDeliver).set({
-      order: newarray[indexOrder]
+    db.collection('Entregas').doc(idOrderDeliver).update({
+      fecha: newarray[indexOrder].fecha,
+      id: newarray[indexOrder].id,
+      name: newarray[indexOrder].name,
+      nameClient: newarray[indexOrder].nameClient,
+      nameWaiter: newarray[indexOrder].nameWaiter,
+      order: newarray[indexOrder].order
     })
+    console.log(newarray[indexOrder])
     db.collection('mesas').doc(idOrderDeliver).update({
         fecha: '',
         nameClient: '',
@@ -61,7 +67,7 @@ const Kitchen = () => {
     return (
         <main className="kitcherContainer">
             <section className="btnKitchenReturn">
-                <Link to="/mesas">
+                <Link to="/orden">
                     <button className="returnButton">Volver</button>
                 </Link>
             </section>

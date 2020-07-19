@@ -65,3 +65,14 @@
                     .imgDrinks{
                         height: 95px; 
                     }
+
+@media all and (min-width: 1440px){
+    #containerDrinks{
+        height: 295px;
+        width: 500px;
+        margin: 350px 0px 0px 225px;
+    }
+    .btnDrinks{
+        width: 130px;
+    }
+}

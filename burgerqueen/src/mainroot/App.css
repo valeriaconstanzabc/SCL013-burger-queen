@@ -176,3 +176,37 @@
 .btnSendLink{
     color: rgba(0, 0, 0);
 }
+
+@media all and (min-width: 1440px){
+    .fatherWelcome{
+        background-image: url("../img/fondoGrande2.0.jpg");
+    }
+    #cookButton, #waiterButton, .btnGetIn{
+        width: 250px;
+        height: 50px;
+        margin-left: 170px;
+        font-size: 30px;
+    }
+    .selectName{
+        width: 250px;
+        height: 50px;
+        margin-left: 170px;
+        font-size: 23px;
+    }
+
+    .background2{
+        background-image: url("../img/burgerqueen1.jpg");
+    }
+    #tableContainer{
+        margin-top: 200px;
+    }
+    .tableButtons{
+        width: 1100px;
+    }
+    .btnTable{
+        margin: 0px 50px 20px 50px;
+    }
+    .client{
+        margin-top: 415px;
+    }
+}

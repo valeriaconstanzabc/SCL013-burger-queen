@@ -1,4 +1,4 @@
-import React, { useContext,useState, useEffect, Fragment } from 'react'
+import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import { UserContext } from '../context/UserContext'
 import { firebase } from '../firebase/firebase'
@@ -11,11 +11,13 @@ const Order = () => {
     const addOrder = () => {
         const arrayMap = objectProduct.map(item => (
             item.nameProduct
+            
         ))
         firebase.firestore().collection('mesas').doc(idTable).update({
             order: arrayMap,
             nameWaiter: name         
         })     
+        console.log(arrayMap)
     }
 
    /* const getUpate = () => {

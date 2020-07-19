@@ -54,3 +54,14 @@ a:link, a:visited, a:active {
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.5);
     border-radius: 0px 15px 15px 15px;
 }
+
+@media all and (min-width: 1440px){
+    #menuContainer{
+        width: 200px;
+        height: 450px;
+        padding-left: 220px; 
+    }
+    .containerProducts{
+        width: 550px;
+    }
+}
