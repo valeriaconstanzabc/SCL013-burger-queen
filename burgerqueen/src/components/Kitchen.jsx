@@ -62,7 +62,7 @@ const Kitchen = () => {
     return (
         <main className="kitcherContainer">
             <section className="btnKitchenReturn">
-                <Link to="/mesas">
+                <Link to="/orden">
                     <button className="returnButton">Volver</button>
                 </Link>
             </section>
