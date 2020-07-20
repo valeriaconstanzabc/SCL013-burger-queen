@@ -142,7 +142,7 @@ Para visitar el detalle de los resultados de los testeos de usabilidad haz click
 ## 6. Planificación
 Realizamos  nuestra planificación mediante la página ***miro***, semana a semana, poniéndonos metas por día y para garantizar una buena organización del proyecto.
 
-![Planificacion](http://imgfz.com/i/hZ5Nb3G.png)
+[!Planificacion](http://imgfz.com/i/hZ5Nb3G.png)
 
 ## 7. Objetivos de aprendizaje
 
@@ -153,7 +153,7 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 * [x] Uso de selectores de CSS.
 * [x] Construir tu aplicación respetando el diseño realizado (maquetación).
 * [x] Uso de flexbox en CSS.
-* [x] Uso de Media Queries.
+* [ ] Uso de Media Queries.
 
 ### JavaScript
 * [x] Uso de condicionales (`if-else`| `switch`|`operador ternario`)
@@ -161,13 +161,13 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 * [x] Manipular arrays (`filter`| `map`|`sort`| `reduce`)
 * [x] Manipular objects (`key`| `value`)
 * [x] Uso ES modules (`import`| `export`)
-* [x] Diferenciar entre expression y statements.
-* [x] Diferenciar entre tipos de datos atómicos y estructurados.
+* [ ] Diferenciar entre expression y statements.
+* [ ] Diferenciar entre tipos de datos atómicos y estructurados.
 * [x] Uso de callbacks.
 * [x] Consumo de Promesas.
 
 ### Testing
-* [x] Testeo unitario.
+* [ ] Testeo unitario.
 
 ### Estructura del código y guía de estilo
 * [x] Organizar y dividir el código en módulos (Modularización)
@@ -191,10 +191,10 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 * [x] `JSX`
 * [x] Componentes `class` y componentes `function`
 * [x] `props`
-* [x] Eventos en React.
+* [ ] Eventos en React.
 * [x] Listas y keys.
 * [x] Renderizado condicional.
-* [x] Elevación de estados.
+* [ ] Elevación de estados.
 * [x] `hooks`
 * [x] `CSS` modules.
 * [x] React Router.
@@ -207,6 +207,6 @@ A continuación detallamos los objetivos de aprendizaje que logramos en este pro
 
 ## 8. Aspectos a mejorar
 
-- Hacer funcional el timer 
-- Mover funciones al Context 
-
+- LLALALALALA
+- LALALALLA
+- LAALALLA
