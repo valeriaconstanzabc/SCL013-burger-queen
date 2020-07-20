@@ -3,6 +3,7 @@ import { firebase } from '../firebase/firebase'
 import { Link } from "react-router-dom";
 import '../components/componentsCss/OrdersToDeliver.css'
 import '../components/componentsCss/Kitchen.css'
+import tiket from '../img/tiket.png'
 
 const OrdersToDeliver = () => {
 
@@ -98,7 +99,7 @@ const OrdersToDeliver = () => {
                             <div className="deliverButton">
                                 <button className="deliverReady" onClick={() => activateArrayOrderDeliver(item)}>Entregado</button>
                                 <button type="submit" key={item.id} className="btnListoDeliver" onClick={() => deleteOrderDelivery()}>
-                                    <img className="btnKitchenReady" src="http://imgfz.com/i/OaD2yhx.png" alt="" />
+                                    <img className="btnKitchenReady" src={tiket} alt="" />
                                 </button>
                             </div>
                         </section>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { firebase } from '../firebase/firebase'
 import '../components/componentsCss/Kitchen.css'
+import tiket from '../img/tiket.png'
 
 
 const Kitchen = () => {
@@ -106,7 +107,7 @@ const Kitchen = () => {
 
                         <div className="kitchenButton">
                             <button  className="kitchenReady">
-                                <p className="btnList" key={item.id} onClick = {() => activateOrderDeliver(item)}><img className="btnKitchenReady" src="http://imgfz.com/i/OaD2yhx.png" alt=""/></p>
+                                <p className="btnList" key={item.id} onClick = {() => activateOrderDeliver(item)}><img className="btnKitchenReady" src={tiket} alt=""/></p>
                             </button>
                             
                             <button type="submit" key={item.id} className="btnListo" onClick = {() => addOrderDeliver()}>
