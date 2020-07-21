@@ -1,6 +1,7 @@
 import React, {Fragment}from 'react'
 import { Link } from "react-router-dom";
 
+//botones cocina y mesero primera página
 const Buttons = () => {
 
     return (

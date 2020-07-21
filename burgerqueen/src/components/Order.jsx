@@ -1,42 +1,26 @@
 import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import { UserContext } from '../context/UserContext'
-import { firebase } from '../firebase/firebase'
 
+//Componente de la Boleta
 const Order = () => {
     
-    let { name, setObjectProduct, idTable, objectProduct, sum, date, newClient } = useContext(UserContext)
-
-    const addOrder = () => {
-        const arrayMap = objectProduct.map(item => (
-            item.nameProduct
-        ))
-
-        firebase.firestore().collection('mesas').doc(idTable).update({
-            order: arrayMap,
-            nameWaiter: name         
-        })
-    }
-
-    const deleteProduct = (id) => {
-        try {
-            const arrayFilter = objectProduct.filter(item =>
-                item.id !== id)
-            setObjectProduct(arrayFilter)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    let { idTable, date, newClient, objectProduct, deleteProduct, sum, addOrder } = useContext(UserContext)
 
     return (
         <div className="containerOrder">
             <header className="orderTitle">
                 <div className="containerTittleOrden">
+
+                    {/* Traemos el hook que guarda el número de mesa */}
                     <h1>{idTable}</h1>
                 </div>
 
                 <div className="containerClientDateAndHour">
+
+                    {/* Traemos el hook que guarda la fecha */}
                     <p className="dateAndHour">Fecha: {date}</p>
+                    {/* Traemos el hook que guarda el cliente ingresado */}
                     <p className="dateAndHour">Cliente: {newClient}</p>
                 </div>
             </header>
@@ -54,6 +38,9 @@ const Order = () => {
                     <Fragment>
                         {
                             objectProduct.map(item => (
+
+                                //Recorremos del hook map de objectProduct que es donde guardamos
+                                //el nombre y precio de cada uno de nuestros productos.
                                 <ul key={item.id} className="containerOrderProduct">
                                     <div className="containerAlineProduct">
                                         <h3>{item.nameProduct}</h3>
@@ -63,6 +50,9 @@ const Order = () => {
                                     </div>
                                     <div className="containerAlinebtn">
                                         <button type="button" className="btnDelete"
+
+                                            //Función que me permite eliminar el producto una vez que ya
+                                            //está en la boleta
                                             onClick={() => deleteProduct(item.id)}
                                         ><img className="imgBtnDelete" src="http://imgfz.com/i/p6lNuWL.png" alt="" />
                                         </button>
@@ -79,6 +69,9 @@ const Order = () => {
                     <hr />
                     <section className="containerTotal">
                         <h3>Total:</h3>
+
+                        {/* hooks donde guardamos la info del precio de
+                        cada producto y con reduce, vamos sumando cada uno */}
                         <h3>$ {sum.push}</h3>
                     </section>
                 </section>
@@ -90,6 +83,9 @@ const Order = () => {
                     <button className="returnButton">Volver</button>
                 </Link>
                 <Link to="/cocina">
+
+                    {/* función que hace un update a firebase y sube toda
+                    la info actualizada de la boleta, a la mesa */}
                     <button className="sendToKitchenButton" onClick={() => addOrder()}>A la cocina</button>
                 </Link>
             </footer>

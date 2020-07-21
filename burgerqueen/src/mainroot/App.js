@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route} from "react-router-dom";
+import {UserProvider} from '../context/UserContext'
 //<----------------Css----------------------------->
 import './App.css';
 import '../components/componentsCss/Menu.css'
@@ -18,9 +19,7 @@ import TableButton from '../components/TableButton';
 import Menu from '../components/Menu';
 import Kitchen from '../components/Kitchen';
 import OrdersToDeliver from '../components/OrdersToDeliver';
-
 import DrinksMenu from '../components/DrinksMenu';
-import {UserProvider} from '../context/UserContext'
 
 //<----------------Función rutas------------------->
 const App = () => {

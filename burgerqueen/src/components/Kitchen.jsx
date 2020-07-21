@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { firebase } from '../firebase/firebase'
 import '../components/componentsCss/Kitchen.css'
 
-
 const Kitchen = () => {
     
     const [newarray, setNewArray] = useState([])
     const [idOrderDeliver, setIdOrderDeliver] = useState('')
 
     const getUpate = () => {
+
+        //Bajamos toda la info que ya está en mesas (firebase), la guardamos
+        //en un nuevo array y la guardamos en un hook
         const db = firebase.firestore()
         db.collection('mesas').orderBy('fecha', 'desc').onSnapshot((querySnapshot) =>{
             const docs = []
@@ -24,12 +26,17 @@ const Kitchen = () => {
         getUpate()
     }, [])
 
+    //Asociamos el click de la mesa que queremos confirmar
+    //con el id presente en la data fe firebase.
     const activateOrderDeliver = (item) => {
         setIdOrderDeliver(item.id)
     }
 
+    //Función que usamos para subir todo a una nueva colección
+    //en firebase, la cual separará los pedidos que ya están listo para la entrega
     const addOrderDeliver = () => {
-        var indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
+
+        let indexOrder = newarray.map(item => item.id).indexOf(idOrderDeliver)
         const db = firebase.firestore()
 
         db.collection('Entregas').doc(idOrderDeliver).update({
@@ -49,6 +56,8 @@ const Kitchen = () => {
         })
     }
  
+    //Función que usamos para entregarle a la x de nuestra orden
+    //que al hacer click en ella, se limpia todo.
     const deleteOrder = (id) => {
         const db = firebase.firestore()
         db.collection('mesas').doc(id).update({

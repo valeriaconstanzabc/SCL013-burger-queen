@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../img/Logo.png'
 import { Link } from "react-router-dom";
 
-
+//componente del header que ingresa el logo.
 const Header = () => {
     return (
         <div>

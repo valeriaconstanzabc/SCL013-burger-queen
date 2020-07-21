@@ -16,7 +16,6 @@ function UserProvider({ children }) {
   const [newClient, setNewClient] = React.useState('')
   //<----------------TableButton & Order----------------------->
 
-
   //<----------------DrinksMenu-------------------------------->
   const [products, setProducts] = React.useState([])
   const [objectProduct, setObjectProduct] = React.useState([])
@@ -41,16 +40,19 @@ function UserProvider({ children }) {
   //<----------------DrinksMenu-------------------------------->
 
   
-
+  //useEffect nos permite realizar funciones secundarias dentro
+  //del mismo componente
   React.useEffect(() => {
 
-
     //<----------------TableButton----------------------------->
-    const getTables = async () => {  // traigo la data desde firebase
+    const getTables = async () => {  
+      
+      // traemos la data desde firebase y creamos los botones dinamicamente
       try {
         const db = firebase.firestore()
         const data = await db.collection('mesas').get()
-        //con (doc => ({ id: doc.id,...doc.data() accedemos a la informacion que esta en la data deja la informacion dentro de un objeto
+
+        //recorremos la data y guardamos esa info en un objeto
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
 
         setTable(arrayData)
@@ -61,12 +63,15 @@ function UserProvider({ children }) {
     getTables()
     //<----------------TableButton----------------------------->
 
-
     //<----------------DrinksMenu------------------------------>
     const getProducts = async () => {
       try {
+
+        // traemos la data desde firebase y creamos los botones dinamicamente
         const db = firebase.firestore()
         const data = await db.collection('productos').get()
+
+        //recorremos la data y guardamos esa info en un objeto
         const arrayData = data.docs.map(doc => ({ id: doc.id, ...doc.data() }))
 
         const arrayColdDrinks = arrayData.filter(arrayData => arrayData.category === "bebidas frias")
@@ -98,23 +103,20 @@ function UserProvider({ children }) {
     getProducts()
     //<----------------DrinksMenu------------------------------>
 
-
   }, [])
 
-
   //<----------------TableButton----------------------------->
-  // constante que nos permite hacer el cambio para inresar el 
-  //string del nombre del ciente y darle un id
+  
+  //Función que nos permite cambiar el estado y posteriormente
+  //ingresar el nombre del cliente dandole un nuevo id
   const activateEditTable = (item) => {
     setEditTable(true)
     setClient('')
     setIdTable(item.id)
     setDate(new Date().toLocaleString())
   }
-  //<----------------TableButton----------------------------->
 
-
-  //<----------------TableButton----------------------------->
+  //funcón que nos actualiza la colección mesas en firebase
   const addNameClient = async (e) => {
     e.preventDefault()
 
@@ -146,53 +148,58 @@ function UserProvider({ children }) {
 
   
   //<----------------DrinksMenu------------------------------>
-  const activateClickProduct = (item) => {
 
+  //Función a la que le pasamos la suma y le asignamos valor,
+  //id y nombre a cada producto. 
+  const activateClickProduct = (item) => {
     let objectProductt = {
       nameProduct: item.nameproduct,
       priceProduct: item.price,
       id: item.id
     }
+    setObjectProduct([...objectProduct, objectProductt])
 
-    setObjectProduct([...objectProduct, 
-      objectProductt])
-
+    
     const productPrice = parseInt(item.price);
-
     sum.push = totalPrice.reduce((price1, price2) => price1 + price2, item.price)
-
     totalPrice.push(productPrice)
     setTotalPrice([...totalPrice])
-
-    const name = objectProduct.map(objt =>
-      objt.nameProduct
-    )
-
-    const price = objectProduct.map(objt =>
-      objt.priceProduct
-    )
-
-    const sumName = name.reduce((contadorName, name) => {
-      contadorName[name] = (contadorName[name] || 0) + 1
-      return contadorName
-    }, {})
-
-    const sumPrice = price.reduce((contadorPrice, price) => {
-      contadorPrice[price] = (contadorPrice[price] || 0) + 1
-      return contadorPrice
-    }, {})
-
+  }
   //<----------------DrinksMenu------------------------------>
+
+  //<---------------------Order------------------------------>
+  //Función que hace un update a firebase y sube toda
+  //la info actualizada de la boleta, a la mesa
+  const addOrder = () => {
+    const arrayMap = objectProduct.map(item => (
+        item.nameProduct
+    ))
+
+    firebase.firestore().collection('mesas').doc(idTable).update({
+        order: arrayMap,
+        nameWaiter: name         
+    })
   }
 
-
+  //Función que me permite eliminar el producto una vez
+  //que ya está en la boleta
+  const deleteProduct = (id) => {
+    try {
+        const arrayFilter = objectProduct.filter(item =>
+            item.id !== id)
+        setObjectProduct(arrayFilter)
+    } catch (error) {
+        console.log(error)
+    }
+  }
+  //<---------------------Order------------------------------>
 
   return (
     <Provider value={{
       name, setName, newClient, date, tables, setTable, client, editTable, activateEditTable, addNameClient,
       setClient, idTable, objectProduct, setObjectProduct, activateClickProduct, 
       coldDrinks, teaDrinks, coffeDrinks, BurgerFood,SandwichFood, DessertFood,
-      SweetsFood, products, Toppings, sum, sumName, setSumName 
+      SweetsFood, products, Toppings, sum, sumName, setSumName, addOrder, deleteProduct 
     }}>
       {children}
     </Provider>

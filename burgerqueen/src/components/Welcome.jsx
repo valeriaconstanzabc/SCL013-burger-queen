@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//componente del fondo principal, primera pagina.
 const Welcome = () => {
     return (
         <div className="fatherWelcome">

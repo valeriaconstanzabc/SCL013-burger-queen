@@ -9,6 +9,8 @@ const OrdersToDeliver = () => {
     const [arrayOrderDeliver, setArrayOrderDeliver] = useState([])
     const [idArrayOrderDeliver, setArrayIdOrderDeliver] = useState('')
 
+    //Bajamos toda la info que ya está en mesas (firebase), la guardamos
+    //en un nuevo array y la guardamos en un hook
     const getDeliver = () => {
         const db = firebase.firestore()
 
@@ -26,10 +28,14 @@ const OrdersToDeliver = () => {
         getDeliver()
     }, [])
 
+    //Asociamos el click de la mesa que queremos confirmar
+    //con el id presente en la data fe firebase.
     const activateArrayOrderDeliver = (item) => {
         setArrayIdOrderDeliver(item.id)
     }
 
+    //Función que usamos para subir todo a una nueva colección
+    //en firebase, la cual separará los pedidos que ya están listo para la entrega
     const deleteOrderDelivery = (id) => {
         let indexOrderDelivery = arrayOrderDeliver.map(item => item.id).indexOf(idArrayOrderDeliver)
 
@@ -43,7 +49,6 @@ const OrdersToDeliver = () => {
             order: []
         })
     }
-
 
     return (
         <main className="menuContainerDeliver">
@@ -89,7 +94,6 @@ const OrdersToDeliver = () => {
                                     <div className="divProduct">
                                         {item.order.map((ele, a) =>
                                             <p key={a} className="productOrder">{ele}</p>)}
-
 
                                     </div>
                                 </div>

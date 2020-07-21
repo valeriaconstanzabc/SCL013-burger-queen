@@ -4,11 +4,13 @@ import '../components/componentsCss/DrinksMenu.css'
 import '../components/componentsCss/ButtonsMenu.css'
 import Order from './Order'
 
+//Componente que ingresa todos los productos al menu.
 const DrinksMenu = () => {
 
-    let { objectProduct, activateClickProduct, coldDrinks, teaDrinks, coffeDrinks, BurgerFood,
-        SandwichFood, DessertFood, SweetsFood, Toppings, sum, sumName} = useContext(UserContext)
-
+    let { objectProduct, sum, sumName, activateClickProduct, 
+        coldDrinks, teaDrinks, coffeDrinks, 
+        BurgerFood, SandwichFood, DessertFood, SweetsFood, 
+        Toppings} = useContext(UserContext)
 
     return (
         <div id="containerDrinks" key={objectProduct}>
@@ -26,7 +28,9 @@ const DrinksMenu = () => {
                 </a>
             </div>
 
-
+            {/* Entregamos nuestro componente y le pasamos todos los hooks 
+            necesarios que se utilizarán en la orden. objectProduct donde tenemos toda
+            la info de los productos, sum y sumname donde hacemos la suma de ellos.  */}
             <Order objectProduct={objectProduct} sum={sum} sumName={sumName} key={objectProduct} />
             <div className="containerTittle">
                 <a name="Bebestibles" id="Bebestibles">
@@ -39,6 +43,11 @@ const DrinksMenu = () => {
                 <div className="containerbtnDrinks">
                     {
                         coldDrinks.map(item => (
+
+                            //Hacemos un filtro solo de nuestras bebidas frias y la llamamos 
+                            //aca para crear un apartado y sectorizarlas. activateClickProduct
+                            //es la función a la que le pasamos la suma y le asignamos valor, id y
+                            //nombre a cada producto. 
                             <button type="button" className="btnDrinks" onClick={() => activateClickProduct(item)} key={item.nameproduct}>
                                 <img src={item.img} alt="" className="imgDrinks" ></img>
                                 <p className="textDrinks" key={item.nameproduct}>

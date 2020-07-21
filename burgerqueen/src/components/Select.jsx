@@ -2,6 +2,7 @@ import React, { useContext, Fragment } from 'react'
 import { Link } from "react-router-dom";
 import {UserContext} from '../context/UserContext'
 
+//componente en donde seleccionamos el nombre del mesero
 const Select = () => {
 
     let {name, setName} = useContext(UserContext)
